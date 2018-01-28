@@ -1,0 +1,74 @@
+{
+  "name": "uptimerobot-page",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/giuem/uptimerobot-page.git",
+  "author": "giuem <giuemcom@gmail.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "nodemon src/bootstrap/app.js"
+  },
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "dotenv": "^4.0.0",
+    "immutable": "^3.8.2",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "koa-static": "^4.0.2",
+    "koa-views": "^6.1.3",
+    "memory-cache": "^0.2.0",
+    "pug": "^2.0.0-rc.4",
+    "uptimerobot-apiv2": "^0.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "husky": "^0.14.3",
+    "nodemon": "^1.14.11",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier",
+      "standard"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 8
+          }
+        }
+      ]
+    ]
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "js": "babel-node"
+    }
+  }
+}
