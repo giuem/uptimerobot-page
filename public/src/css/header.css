@@ -1,11 +1,11 @@
 .header {
   /* display: flex; */
   margin-bottom: 3em;
-}
 
-.title {
-  margin: 0;
-  font-size: 1.5em;
-  font-weight: normal;
-  line-height: 5;
+  &-title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 5;
+  }
 }

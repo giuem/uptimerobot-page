@@ -5,28 +5,25 @@
   background-repeat: no-repeat;
 }
 
-.icon-sum-up,
-.icon-sum-down {
+.icon-status-sum {
   height: 2em;
   width: 2em;
   margin-right: 1em;
+  &.up {
+    background-image: inline("../svg/up.svg");
+  }
+  &.down {
+    background-image: inline("../svg/down.svg")
+  }
 }
 
-.icon-sum-up {
-  background-image: inline("../svg/up.svg");
-}
-
-.icon-sum-down {
-  background-image: inline("../svg/down.svg")
-}
-
-.icon-status-up,
-.icon-status-down {
+.icon-status {
   border-radius: 100%;
-}
-.icon-status-up {
-  background: var(--color-green);
-}
-.icon-status-down {
-  background: var(--color-red);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  &.up {
+    background: var(--color-green);
+  }
+  &.down {
+    background: var(--color-red);
+  }
 }

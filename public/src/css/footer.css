@@ -1,0 +1,27 @@
+.footer {
+  margin-bottom: 2em;
+  &-content {
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+  }
+}
+
+.copyright {
+  color: #888;  
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: #888;
+    padding: 0.4em 0.6em;
+    margin-right: 1em;
+
+    &:hover {
+      color: #666;
+    }
+  }
+}

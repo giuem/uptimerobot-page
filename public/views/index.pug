@@ -9,10 +9,10 @@ html
     div#app
       section.header
         div.container
-          h1.title=title
+          h1.header-title=title
           div.card
             div.summary
-              div.icon.icon-sum-up
+              div.icon.icon-status-sum.up
               div
                 div.summary-detail="All instances is working"
                 div.summary-checktime="Last check at ..."
@@ -22,17 +22,23 @@ html
           each val in ["dasdas", "asr43","524h9", "ng97"]
             div.card.monitors.has-children
               div.monitors-header
-                div.monitors-title=val
-                div.icon.icon-status-up
+                div.monitors-header-title=val
+                div.icon.icon-status.up
               div.monitors-content-wrap
                 div.monitors-content
                   each item in ["dasdas", "asr43","524h9", "ng97"]
-                    div.monitor=item
+                    div.monitor
+                      div.monitor-name=item
+                      div.icon.icon-status.up
           
 
 
       section.footer
-        div.container
+        .container
+          .footer-content
+            nav.links
+              a(href="http://giuem.com")="giuem"
+            .copyright="Giuem 2017"
 
       script
         include ../src/js/open.js

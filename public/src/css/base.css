@@ -10,13 +10,20 @@ body {
 }
 
 #app {
+  min-height: 100vh;
   padding: 0 2em;
   color: var(--color-base);
+  display: flex;
+  flex-flow: column;
 }
 
 .container {
   margin: 0 auto;
   max-width: 600px;
+}
+
+.content {
+  flex: 1;
 }
 
 .card {

@@ -8,6 +8,7 @@ gulp.task("postcss", function() {
     require("postcss-assets")({
       basePath: "public/src/"
     }),
+    require("postcss-nested"),
     require("postcss-custom-properties"),
     require("autoprefixer")({ browsers: ["last 2 years"] }),
     require("cssnano")({
@@ -31,6 +32,7 @@ gulp.task("postcss:dev", function() {
     require("postcss-assets")({
       basePath: "public/src/"
     }),
+    require("postcss-nested"),
     require("postcss-custom-properties")
   ];
   return gulp

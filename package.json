@@ -44,6 +44,7 @@
     "postcss-custom-properties": "^6.2.0",
     "postcss-debug": "^0.4.2",
     "postcss-import": "^11.0.0",
+    "postcss-nested": "^3.0.0",
     "prettier": "^1.10.2",
     "rimraf": "^2.6.2",
     "time-require": "^0.1.2"
