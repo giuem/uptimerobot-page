@@ -6,6 +6,7 @@ import UptimeRobotService from "../services/uptimerobot";
 import { join } from "path";
 import { logger } from "../lib/logger";
 import KoaStatic from "koa-static";
+import { mountConfig } from "./config";
 config();
 const app = new Koa();
 
@@ -13,6 +14,8 @@ const app = new Koa();
 app.context.services = {
   uptimerobot: new UptimeRobotService(process.env.UPTIME_ROBOT_API)
 };
+
+mountConfig(app);
 
 // views
 app.use(
@@ -27,7 +30,7 @@ app.use(KoaStatic(join(__dirname, "../../public/assets")));
 app.use(router.routes());
 
 // start server
-const port = process.env.APP_PORT || 3000;
+const port = process.env.PAGE_PORT || 3000;
 app.listen(port, function() {
   logger.info("Server start at", port);
 });

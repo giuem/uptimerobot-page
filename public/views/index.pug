@@ -3,13 +3,13 @@ html
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title=title
+    title=config.title
     link(rel="stylesheet", href="css/app.css")
   body
     div#app
       section.header
         div.container
-          h1.header-title=title
+          h1.header-title=config.title
           div.card
             div.summary
               div.icon.icon-status-sum.up
@@ -37,8 +37,9 @@ html
         .container
           .footer-content
             nav.links
-              a(href="http://giuem.com")="giuem"
-            .copyright="Giuem 2017"
+              for link in config.links
+                a(href=link.href)=link.name
+            .copyright!="&copy; " + config.copyright
 
       script
         include ../src/js/open.js

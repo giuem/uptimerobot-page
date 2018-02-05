@@ -595,11 +595,11 @@ body {
 }
 
 .footer {
-  margin-bottom: 2em;
+  margin: 2em 0;
 }
 
 .footer-content {
-    font-size: 0.9em;
+    font-size: 0.8em;
     display: flex;
     align-items: center;
     justify-content: space-between;
