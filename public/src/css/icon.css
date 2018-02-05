@@ -1,0 +1,32 @@
+.icon {
+  height: 1em;
+  width: 1em;
+  display: block;
+  background-repeat: no-repeat;
+}
+
+.icon-sum-up,
+.icon-sum-down {
+  height: 2em;
+  width: 2em;
+  margin-right: 1em;
+}
+
+.icon-sum-up {
+  background-image: inline("../svg/up.svg");
+}
+
+.icon-sum-down {
+  background-image: inline("../svg/down.svg")
+}
+
+.icon-status-up,
+.icon-status-down {
+  border-radius: 100%;
+}
+.icon-status-up {
+  background: var(--color-green);
+}
+.icon-status-down {
+  background: var(--color-red);
+}

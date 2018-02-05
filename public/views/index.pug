@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title=title
+    link(rel="stylesheet", href="css/app.css")
+  body
+    div#app
+      section.header
+        div.container
+          h1.title=title
+          div.card
+            div.summary
+              div.icon.icon-sum-up
+              div
+                div.summary-detail="All instances is working"
+                div.summary-checktime="Last check at ..."
+
+      section.content
+        div.container
+          each val in ["dasdas", "asr43","524h9", "ng97"]
+            div.card.monitors.has-children
+              div.monitors-header
+                div.monitors-title=val
+                div.icon.icon-status-up
+              div.monitors-content-wrap
+                div.monitors-content
+                  each item in ["dasdas", "asr43","524h9", "ng97"]
+                    div.monitor=item
+          
+
+
+      section.footer
+        div.container
+
+      script
+        include ../src/js/open.js
+        
+
+  

@@ -5,6 +5,7 @@ import { router } from "../routes";
 import UptimeRobotService from "../services/uptimerobot";
 import { join } from "path";
 import { logger } from "../lib/logger";
+import KoaStatic from "koa-static";
 config();
 const app = new Koa();
 
@@ -15,10 +16,12 @@ app.context.services = {
 
 // views
 app.use(
-  KoaViews(join(__dirname, "../views"), {
+  KoaViews(join(__dirname, "../../public/views"), {
     extension: "pug"
   })
 );
+
+app.use(KoaStatic(join(__dirname, "../../public/assets")));
 
 // routes
 app.use(router.routes());

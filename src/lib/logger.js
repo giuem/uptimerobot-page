@@ -21,22 +21,22 @@ class Logger {
 
   debug(...msgs) {
     if (LEVEL.get("debug") >= this.level)
-      console.log("[DEBUG]", time(), ...msgs);
+      console.log(time(), "[DEBUG]", ...msgs);
   }
 
   info(...msgs) {
     if (LEVEL.get("info") >= this.level)
-      console.log("[INFO ]", time(), ...msgs);
+      console.log(time(), "[INFO ]", ...msgs);
   }
 
   warn(...msgs) {
     if (LEVEL.get("warn") >= this.level)
-      console.log("[WARN ]", time(), ...msgs);
+      console.log(time(), "[WARN ]", ...msgs);
   }
 
   error(...msgs) {
     if (LEVEL.get("error") >= this.level)
-      console.log("[ERROR]", time(), ...msgs);
+      console.log(time(), "[ERROR]", ...msgs);
   }
 }
 

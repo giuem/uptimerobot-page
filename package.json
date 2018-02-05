@@ -6,7 +6,7 @@
   "author": "giuem <giuemcom@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "dev": "nodemon src/bootstrap/app.js"
+    "dev": "gulp dev"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
@@ -21,8 +21,11 @@
     "uptimerobot-apiv2": "^0.0.2"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.6",
+    "cssnano": "^3.10.0",
     "eslint": "^4.16.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0-beta.0",
@@ -32,10 +35,18 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-postcss": "^7.0.1",
     "husky": "^0.14.3",
-    "nodemon": "^1.14.11",
+    "nano": "^6.4.2",
+    "normalize.css": "^7.0.0",
+    "postcss-assets": "^5.0.0",
+    "postcss-custom-properties": "^6.2.0",
+    "postcss-debug": "^0.4.2",
+    "postcss-import": "^11.0.0",
     "prettier": "^1.10.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "time-require": "^0.1.2"
   },
   "eslintConfig": {
     "extends": [
@@ -65,10 +76,5 @@
         }
       ]
     ]
-  },
-  "nodemonConfig": {
-    "execMap": {
-      "js": "babel-node"
-    }
   }
 }
