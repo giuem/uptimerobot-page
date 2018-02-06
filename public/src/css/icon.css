@@ -20,8 +20,14 @@
 .icon-status {
   border-radius: 100%;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  &.pause {
+    background: #111;
+  }
   &.up {
     background: var(--color-green);
+  }
+  &.seem-down {
+    background: #ffdd57;
   }
   &.down {
     background: var(--color-red);

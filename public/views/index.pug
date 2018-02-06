@@ -1,3 +1,14 @@
+mixin monitorStatus(status)
+  case status
+    when 2
+      .icon.icon-status.up
+    when 8
+      .icon.icon-status.seem-down
+    when 9
+      .icon.icon-status.down
+    default
+      .icon.icon-status.pause
+
 doctype html
 html
   head
@@ -6,30 +17,39 @@ html
     title=config.title
     link(rel="stylesheet", href="css/app.css")
   body
-    div#app
+    #app
       section.header
-        div.container
+        .container
           h1.header-title=config.title
-          div.card
-            div.summary
-              div.icon.icon-status-sum.up
+          .card
+            .summary
+              if (data.sum.down > 0)
+                .icon.icon-status-sum.down
+              else
+                .icon.icon-status-sum.up
               div
-                div.summary-detail="All instances is working"
-                div.summary-checktime="Last check at ..."
+                if (data.sum.down > 0)
+                  .summary-detail= data.sum.down + " monitors is down." 
+                else
+                  .summary-detail="All monitors is up." 
+                .summary-checktime="Last check at " + data.sum.checktime
 
       section.content
-        div.container
-          each val in ["dasdas", "asr43","524h9", "ng97"]
-            div.card.monitors.has-children
-              div.monitors-header
-                div.monitors-header-title=val
-                div.icon.icon-status.up
-              div.monitors-content-wrap
-                div.monitors-content
-                  each item in ["dasdas", "asr43","524h9", "ng97"]
-                    div.monitor
-                      div.monitor-name=item
-                      div.icon.icon-status.up
+        .container
+          - for (var groupName in data.groups)
+            .card.monitors.has-children
+              .monitors-header
+                .monitors-header-title=groupName
+                if (data.groups[groupName].down > 0)
+                  .icon.icon-status.down
+                else
+                  .icon.icon-status.up
+              .monitors-content-wrap
+                .monitors-content
+                  each monitor in data.groups[groupName].monitors
+                    .monitor
+                      .monitor-name=monitor.name
+                      +monitorStatus(monitor.status)
           
 
 

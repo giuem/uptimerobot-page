@@ -507,8 +507,16 @@ body {
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
 
+.icon-status.pause {
+    background: #111;
+  }
+
 .icon-status.up {
     background: #6AC259;
+  }
+
+.icon-status.seem-down {
+    background: #ffdd57;
   }
 
 .icon-status.down {
@@ -537,7 +545,8 @@ body {
   }
 
 .summary-checktime {
-    font-size: 0.8em
+    font-size: 0.8em;
+    color: #898989;
   }
 
 .monitors {
