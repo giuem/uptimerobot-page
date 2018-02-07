@@ -1,7 +1,8 @@
 {
   "name": "uptimerobot-page",
-  "version": "0.0.0",
-  "main": "index.js",
+  "description": "Another status page based on UptimeRobot",
+  "version": "0.0.1",
+  "main": "build/bootstrap/app.js",
   "repository": "https://github.com/giuem/uptimerobot-page.git",
   "author": "giuem <giuemcom@gmail.com>",
   "license": "GPL-3.0",
@@ -11,6 +12,13 @@
     "build": "babel src -d build && gulp",
     "clean": "rimraf public/assets build",
     "precommit": "npm run clean && npm run build && git add build public/assets"
+  },
+  "homepage": "https://github.com/giuem/uptimerobot-page",
+  "bugs": {
+    "url": "https://github.com/giuem/uptimerobot-page/issues"
+  },
+  "engines": {
+    "node": ">=8.0.0"
   },
   "dependencies": {
     "cron": "^1.3.0",
