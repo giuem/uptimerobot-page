@@ -1,6 +1,16 @@
 const gulp = require("gulp");
 // const debug = require("postcss-debug").createDebugger();
 
+gulp.task("default", ["js", "postcss"]);
+
+gulp.task("js", function() {
+  const uglify = require("gulp-uglify");
+  return gulp
+    .src("./public/src/js/*.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("./public/assets/js"));
+});
+
 gulp.task("postcss", function() {
   const postcss = require("gulp-postcss");
   const plugins = [
@@ -63,7 +73,7 @@ gulp.task("nodemon", function(cb) {
     watch: ["src/", "public/src", "public/views"],
     ext: "js css pug",
     script: "src/bootstrap/app.js",
-    tasks: ["postcss:dev"]
+    tasks: ["postcss:dev", "js"]
   })
     .on("start", function() {
       if (!called) {

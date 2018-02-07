@@ -6,7 +6,11 @@
   "author": "giuem <giuemcom@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "dev": "gulp dev"
+    "start": "node build/bootstrap/app",
+    "dev": "gulp dev",
+    "build": "babel src -d build && gulp",
+    "clean": "rimraf public/assets build",
+    "precommit": "npm run clean && npm run build && git add build public/assets"
   },
   "dependencies": {
     "cron": "^1.3.0",
@@ -38,8 +42,8 @@
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^7.0.1",
+    "gulp-uglify": "^3.0.0",
     "husky": "^0.14.3",
-    "nano": "^6.4.2",
     "normalize.css": "^7.0.0",
     "postcss-assets": "^5.0.0",
     "postcss-custom-properties": "^6.2.0",
@@ -67,6 +71,10 @@
       "es6": true
     }
   },
+  "eslintIgnore": [
+    "build",
+    "public"
+  ],
   "babel": {
     "presets": [
       [
