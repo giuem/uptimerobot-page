@@ -9,6 +9,9 @@ import KoaStatic from "koa-static";
 import { mountConfig } from "./config";
 import cron from "./cron";
 config();
+
+logger.setLevel(process.env.LOG_LEVEL);
+
 const app = new Koa();
 
 // mount service

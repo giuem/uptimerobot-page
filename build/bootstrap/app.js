@@ -33,6 +33,9 @@ var _cron2 = _interopRequireDefault(_cron);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _dotenv.config)();
+
+_logger.logger.setLevel(process.env.LOG_LEVEL);
+
 const app = new _koa2.default();
 
 // mount service
