@@ -20,9 +20,9 @@ var _path = require("path");
 
 var _logger = require("../lib/logger");
 
-var _koaStatic = require("koa-static");
+var _koaStaticCache = require("koa-static-cache");
 
-var _koaStatic2 = _interopRequireDefault(_koaStatic);
+var _koaStaticCache2 = _interopRequireDefault(_koaStaticCache);
 
 var _config = require("./config");
 
@@ -49,11 +49,14 @@ app.context.services = {
 (0, _cron2.default)(app.context);
 
 // views
-app.use((0, _koaViews2.default)((0, _path.join)(__dirname, "../../public/views"), {
+app.use((0, _koaViews2.default)((0, _path.join)(__dirname, "../views"), {
   extension: "pug"
 }));
 // static
-app.use((0, _koaStatic2.default)((0, _path.join)(__dirname, "../../public/assets")));
+app.use((0, _koaStaticCache2.default)((0, _path.join)(__dirname, "../../public/assets"), {
+  maxAge: 365 * 24 * 60 * 60,
+  gzip: true
+}));
 
 // routes
 app.use(_routes.router.routes());

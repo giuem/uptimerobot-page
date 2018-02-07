@@ -1,0 +1,68 @@
+mixin monitorStatus(status)
+  case status
+    when 2
+      .icon.icon-status.up
+    when 8
+      .icon.icon-status.seem-down
+    when 9
+      .icon.icon-status.down
+    default
+      .icon.icon-status.pause
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title=config.title
+    link(rel="stylesheet", href="css/app.css")
+  body
+    #app
+      section.header
+        .container
+          h1.header-title=config.title
+          .card
+            .summary
+              if (data.sum.down > 0)
+                .icon.icon-status-sum.down
+              else
+                .icon.icon-status-sum.up
+              div
+                if (data.sum.down > 0)
+                  .summary-detail= data.sum.down + " systems are outage." 
+                else
+                  .summary-detail="All systems are operational." 
+                .summary-checktime="Last check at " + data.sum.checktime
+
+      section.content
+        .container
+          - for (var groupName in data.groups)
+            .card.monitors.has-children
+              .monitors-header
+                .monitors-header-title=groupName
+                if (data.groups[groupName].down > 0)
+                  .icon.icon-status.down
+                else
+                  .icon.icon-status.up
+              .monitors-content-wrap
+                .monitors-content
+                  each monitor in data.groups[groupName].monitors
+                    .monitor
+                      .monitor-name=monitor.name
+                      +monitorStatus(monitor.status)
+          
+
+
+      section.footer
+        .container
+          .footer-content
+            nav.links
+              for link in config.links
+                a(href=link.href)=link.name
+            .copyright!="&copy; " + config.copyright
+
+      script
+        include ../../public/assets/js/open.js
+        
+
+  

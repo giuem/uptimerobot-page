@@ -1,7 +1,27 @@
 const gulp = require("gulp");
 // const debug = require("postcss-debug").createDebugger();
 
-gulp.task("default", ["js", "postcss"]);
+gulp.task("default", ["js", "css"], function() {
+  const revReplace = require("gulp-rev-replace");
+  const manifest = gulp.src("./public/assets/rev-manifest.json");
+
+  return gulp
+    .src("./src/views/index.pug")
+    .pipe(revReplace({ manifest: manifest, replaceInExtensions: [".pug"] }))
+    .pipe(gulp.dest("build/views"));
+});
+
+gulp.task("css", ["postcss"], function() {
+  const rev = require("gulp-rev");
+
+  return gulp
+    .src("./public/assets/css/*.css", { base: "./public/assets" })
+    .pipe(gulp.dest("./public/assets"))
+    .pipe(rev())
+    .pipe(gulp.dest("./public/assets"))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest("./public/assets"));
+});
 
 gulp.task("js", function() {
   const uglify = require("gulp-uglify");

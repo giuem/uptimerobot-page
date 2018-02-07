@@ -5,7 +5,7 @@ import { router } from "../routes";
 import UptimeRobotService from "../services/uptimerobot";
 import { join } from "path";
 import { logger } from "../lib/logger";
-import KoaStatic from "koa-static";
+import staticCache from "koa-static-cache";
 import { mountConfig } from "./config";
 import cron from "./cron";
 config();
@@ -26,12 +26,17 @@ cron(app.context);
 
 // views
 app.use(
-  KoaViews(join(__dirname, "../../public/views"), {
+  KoaViews(join(__dirname, "../views"), {
     extension: "pug"
   })
 );
 // static
-app.use(KoaStatic(join(__dirname, "../../public/assets")));
+app.use(
+  staticCache(join(__dirname, "../../public/assets"), {
+    maxAge: 365 * 24 * 60 * 60,
+    gzip: true
+  })
+);
 
 // routes
 app.use(router.routes());
