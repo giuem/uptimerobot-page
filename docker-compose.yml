@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  uptimerobot-page:
+    image: giuem/uptimerobot-page
+    environment: 
+      - UPTIME_ROBOT_API=
+      - PAGE_PORT=3000
+      - PAGE_TITLE=
+      - PAGE_COPYRIGHT=
+      - PAGE_LINKS=
+      - LOG_LEVEL=info
+    ports: 
+      - 127.0.0.1:8082:3000
