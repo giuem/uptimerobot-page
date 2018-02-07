@@ -29,9 +29,9 @@ html
                 .icon.icon-status-sum.up
               div
                 if (data.sum.down > 0)
-                  .summary-detail= data.sum.down + " monitors is down." 
+                  .summary-detail= data.sum.down + " systems are outage." 
                 else
-                  .summary-detail="All monitors is up." 
+                  .summary-detail="All systems are operational." 
                 .summary-checktime="Last check at " + data.sum.checktime
 
       section.content
