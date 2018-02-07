@@ -36,5 +36,5 @@ app.use(router.routes());
 // start server
 const port = process.env.PAGE_PORT || 3000;
 app.listen(port, function() {
-  logger.info("Server start at", port);
+  logger.info("Server starts at", port);
 });
