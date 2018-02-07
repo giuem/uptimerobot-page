@@ -10,7 +10,7 @@ const env = process.env;
 function mountConfig(app) {
   const config = {
     title: env.PAGE_TITLE || "",
-    copyright: env.PAGE_TITLE || "",
+    copyright: env.PAGE_COPYRIGHT || "",
 
     get links() {
       if (typeof this[LINKS] === "undefined") {
