@@ -9,59 +9,63 @@ export default class UptimeRobotService {
     this.cache = new Cache();
   }
 
+  async prefetchList() {
+    let data = {
+      sum: {
+        // total: 0,
+        down: 0,
+        checktime: format(Date.now(), "YYYY-MM-DD HH:mm:ss")
+      },
+      groups: {
+        /**
+         * groupName: {
+         *    down: 0,
+         *    monitors: [{
+         *      name,
+         *      status
+         *    }]
+         * }
+         *
+         */
+      }
+    };
+
+    const { monitors } = await this.api.getMonitors();
+    for (let monitor of monitors) {
+      const [groupName, monitorName] = monitor["friendly_name"].split("/");
+      // init group
+      if (!data.groups.hasOwnProperty(groupName)) {
+        data.groups[groupName] = { down: 0, monitors: [] };
+      }
+
+      /**
+       * monitor status
+       * 0,1 -> pause     -> black
+       * 2   -> up        -> green
+       * 8   -> seem down -> yellow
+       * 9   -> down      -> red
+       */
+      const { status } = monitor;
+      // calc down instances
+      // data.sum.total++;
+      if (status > 2) {
+        data.sum.down++;
+        data.groups[groupName].down++;
+      }
+      // push monitor
+      data.groups[groupName].monitors.push({
+        name: monitorName,
+        status
+      });
+    }
+    // cache monitors for 5 mins
+    return this.cache.put("monitors", data, 5 * 60 * 1000);
+  }
+
   async list() {
     let data = this.cache.get("monitors");
     if (!data) {
-      data = {
-        sum: {
-          // total: 0,
-          down: 0,
-          checktime: format(Date.now(), "YYYY-MM-DD HH:mm:ss")
-        },
-        groups: {
-          /**
-           * groupName: {
-           *    down: 0,
-           *    monitors: [{
-           *      name,
-           *      status
-           *    }]
-           * }
-           *
-           */
-        }
-      };
-
-      const { monitors } = await this.api.getMonitors();
-      for (let monitor of monitors) {
-        const [groupName, monitorName] = monitor["friendly_name"].split("/");
-        // init group
-        if (!data.groups.hasOwnProperty(groupName)) {
-          data.groups[groupName] = { down: 0, monitors: [] };
-        }
-
-        /**
-         * monitor status
-         * 0,1 -> pause     -> black
-         * 2   -> up        -> green
-         * 8   -> seem down -> yellow
-         * 9   -> down      -> red
-         */
-        const { status } = monitor;
-        // calc down instances
-        // data.sum.total++;
-        if (status > 2) {
-          data.sum.down++;
-          data.groups[groupName].down++;
-        }
-        // push monitor
-        data.groups[groupName].monitors.push({
-          name: monitorName,
-          status
-        });
-      }
-      // cache monitors for 5 mins
-      this.cache.put("monitors", data, 5 * 60 * 1000);
+      data = await this.prefetchList();
     } else {
       logger.debug("Hit Cache");
     }

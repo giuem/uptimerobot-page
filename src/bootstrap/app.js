@@ -7,6 +7,7 @@ import { join } from "path";
 import { logger } from "../lib/logger";
 import KoaStatic from "koa-static";
 import { mountConfig } from "./config";
+import cron from "./cron";
 config();
 const app = new Koa();
 
@@ -14,8 +15,11 @@ const app = new Koa();
 app.context.services = {
   uptimerobot: new UptimeRobotService(process.env.UPTIME_ROBOT_API)
 };
-
+// mount config
 mountConfig(app);
+
+// start cron
+cron(app.context);
 
 // views
 app.use(
@@ -23,7 +27,7 @@ app.use(
     extension: "pug"
   })
 );
-
+// static
 app.use(KoaStatic(join(__dirname, "../../public/assets")));
 
 // routes
