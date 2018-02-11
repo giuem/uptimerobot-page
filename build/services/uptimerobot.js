@@ -98,8 +98,8 @@ class UptimeRobotService {
         uptime
       });
     }
-    // cache monitors for 5 mins
-    return this.cache.put("monitors", data, 5 * 60 * 1000);
+    // cache monitors (update pre 5m)
+    return this.cache.put("monitors", data);
   }
 
   async list() {
