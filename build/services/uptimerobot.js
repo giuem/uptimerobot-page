@@ -16,6 +16,20 @@ var _dateFns = require("date-fns");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function last30Days() {
+  const now = (0, _dateFns.startOfDay)(new Date());
+  const days = [];
+  const ranges = [];
+  const getTime = date => Math.floor(date.getTime() / 1000);
+  for (let i = -30; i < 0; i++) {
+    const day0 = (0, _dateFns.addDays)(now, i);
+    const day1 = (0, _dateFns.addSeconds)(day0, -1);
+    days.push((0, _dateFns.format)(day0, "MMM, D"));
+    ranges.push(`${getTime(day0)}_${getTime(day1)}`);
+  }
+  return { days, ranges: ranges.join("-") };
+}
+
 class UptimeRobotService {
   constructor(key) {
     this.api = new _uptimerobotApiv2.default(key);
@@ -42,8 +56,11 @@ class UptimeRobotService {
          */
       }
     };
-
-    const { monitors } = await this.api.getMonitors();
+    const { days, ranges } = last30Days();
+    const { monitors } = await this.api.getMonitors({
+      custom_uptime_ranges: ranges
+    });
+    console.log(monitors);
     for (let monitor of monitors) {
       const [groupName, monitorName] = monitor["friendly_name"].split("/");
       // init group

@@ -14,7 +14,7 @@ exports.default = ctx => {
     onTick: function () {
       ctx.services.uptimerobot.prefetchList().then(() => {
         _logger.logger.debug("Prefetch done.");
-      });
+      }).catch(err => _logger.logger.error(err));
     },
     onComplete: function () {
       _logger.logger.warn("Cron prefetchMonitors is stopped.");
