@@ -1,13 +1,20 @@
 mixin monitorStatus(status)
   case status
     when 2
-      .icon.icon-status.up
+      .icon.icon-status.up(title="Operational")
     when 8
-      .icon.icon-status.seem-down
+      .icon.icon-status.seem-down(title="Seem down")
     when 9
-      .icon.icon-status.down
+      .icon.icon-status.down(title="Outage")
     default
-      .icon.icon-status.pause
+      .icon.icon-status.pause(title="Pause")
+
+mixin uptime(uptime)
+  .icon-uptime(
+    class=(uptime.uptime==0?"pause":uptime.uptime<95?"down":uptime.uptime<100?"seem-down":"up"),
+    title="<small>" + uptime.date + "<br>" + uptime.uptime+ "%</small>"
+  )
+
 
 doctype html
 html
@@ -27,7 +34,7 @@ html
                 .icon.icon-status-sum.down
               else
                 .icon.icon-status-sum.up
-              div
+              div(style="letter-spacing:-0.5px;")
                 if (data.sum.down > 0)
                   .summary-detail= data.sum.down + " systems are outage." 
                 else
@@ -48,8 +55,17 @@ html
                 .monitors-content
                   each monitor in data.groups[groupName].monitors
                     .monitor
-                      .monitor-name=monitor.name
-                      +monitorStatus(monitor.status)
+                      .monitor-header
+                        .monitor-name=monitor.name
+                        +monitorStatus(monitor.status)
+                      .monitor-content
+                        .monitor-uptime-range
+                          strong=monitor.totalUptime+ "% "
+                          span="uptime for the last " + monitor.uptime.length + " days."
+                        .monitor-uptimes
+                          each uptime in monitor.uptime
+                            +uptime(uptime)
+                              
           
 
 
@@ -61,8 +77,10 @@ html
                 a(href=link.href)=link.name
             .copyright!="&copy; " + config.copyright
 
+      script(src="https://cdn.jsdelivr.net/npm/tippy.js@2.2.0/dist/tippy.all.min.js")
       script
         include ../../public/assets/js/open.js
+        include ../../public/assets/js/tippy.js
         
 
   

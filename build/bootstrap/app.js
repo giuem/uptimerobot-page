@@ -54,7 +54,7 @@ app.use((0, _koaViews2.default)((0, _path.join)(__dirname, "../views"), {
 }));
 // static
 app.use((0, _koaStaticCache2.default)((0, _path.join)(__dirname, "../../public/assets"), {
-  maxAge: 365 * 24 * 60 * 60,
+  maxAge: process.env.NODE_ENV === "production" ? 365 * 24 * 60 * 60 : 0,
   gzip: true
 }));
 

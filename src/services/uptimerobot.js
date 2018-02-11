@@ -1,7 +1,23 @@
 import UptimeRobot from "uptimerobot-apiv2";
 import { Cache } from "memory-cache";
 import { logger } from "../lib/logger";
-import { format } from "date-fns";
+import { format, addDays, addSeconds, startOfDay } from "date-fns";
+
+const distance = 45;
+
+function lastDays(distance) {
+  const now = startOfDay(new Date());
+  const dates = [];
+  const ranges = [];
+  const getTime = date => Math.floor(date.getTime() / 1000);
+  for (let i = -distance; i < 0; i++) {
+    const day0 = addDays(now, i);
+    const day1 = addSeconds(addDays(day0, 1), -1);
+    dates.push(format(day0, "MMM Do, YYYY"));
+    ranges.push(`${getTime(day0)}_${getTime(day1)}`);
+  }
+  return { dates, ranges: ranges.join("-") };
+}
 
 export default class UptimeRobotService {
   constructor(key) {
@@ -14,7 +30,7 @@ export default class UptimeRobotService {
       sum: {
         // total: 0,
         down: 0,
-        checktime: format(Date.now(), "YYYY-MM-DD HH:mm:ss")
+        checktime: format(Date.now(), "MMMM Do YYYY, H:mm")
       },
       groups: {
         /**
@@ -29,8 +45,11 @@ export default class UptimeRobotService {
          */
       }
     };
-
-    const { monitors } = await this.api.getMonitors();
+    const { dates, ranges } = lastDays(distance);
+    const { monitors } = await this.api.getMonitors({
+      custom_uptime_ratios: distance,
+      custom_uptime_ranges: ranges
+    });
     for (let monitor of monitors) {
       const [groupName, monitorName] = monitor["friendly_name"].split("/");
       // init group
@@ -52,10 +71,18 @@ export default class UptimeRobotService {
         data.sum.down++;
         data.groups[groupName].down++;
       }
+      // last 30 days uptime
+      const range = monitor["custom_uptime_ranges"].split("-");
+      const uptime = [];
+      for (let i = 0; i < range.length; i++) {
+        uptime.push({ date: dates[i], uptime: range[i] });
+      }
       // push monitor
       data.groups[groupName].monitors.push({
         name: monitorName,
-        status
+        status,
+        totalUptime: monitor["custom_uptime_ratio"],
+        uptime
       });
     }
     // cache monitors for 5 mins

@@ -16,18 +16,20 @@ var _dateFns = require("date-fns");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function last30Days() {
+const distance = 45;
+
+function lastDays(distance) {
   const now = (0, _dateFns.startOfDay)(new Date());
-  const days = [];
+  const dates = [];
   const ranges = [];
   const getTime = date => Math.floor(date.getTime() / 1000);
-  for (let i = -30; i < 0; i++) {
+  for (let i = -distance; i < 0; i++) {
     const day0 = (0, _dateFns.addDays)(now, i);
-    const day1 = (0, _dateFns.addSeconds)(day0, -1);
-    days.push((0, _dateFns.format)(day0, "MMM, D"));
+    const day1 = (0, _dateFns.addSeconds)((0, _dateFns.addDays)(day0, 1), -1);
+    dates.push((0, _dateFns.format)(day0, "MMM Do, YYYY"));
     ranges.push(`${getTime(day0)}_${getTime(day1)}`);
   }
-  return { days, ranges: ranges.join("-") };
+  return { dates, ranges: ranges.join("-") };
 }
 
 class UptimeRobotService {
@@ -41,7 +43,7 @@ class UptimeRobotService {
       sum: {
         // total: 0,
         down: 0,
-        checktime: (0, _dateFns.format)(Date.now(), "YYYY-MM-DD HH:mm:ss")
+        checktime: (0, _dateFns.format)(Date.now(), "MMMM Do YYYY, H:mm")
       },
       groups: {
         /**
@@ -56,11 +58,11 @@ class UptimeRobotService {
          */
       }
     };
-    const { days, ranges } = last30Days();
+    const { dates, ranges } = lastDays(distance);
     const { monitors } = await this.api.getMonitors({
+      custom_uptime_ratios: distance,
       custom_uptime_ranges: ranges
     });
-    console.log(monitors);
     for (let monitor of monitors) {
       const [groupName, monitorName] = monitor["friendly_name"].split("/");
       // init group
@@ -82,10 +84,18 @@ class UptimeRobotService {
         data.sum.down++;
         data.groups[groupName].down++;
       }
+      // last 30 days uptime
+      const range = monitor["custom_uptime_ranges"].split("-");
+      const uptime = [];
+      for (let i = 0; i < range.length; i++) {
+        uptime.push({ date: dates[i], uptime: range[i] });
+      }
       // push monitor
       data.groups[groupName].monitors.push({
         name: monitorName,
-        status
+        status,
+        totalUptime: monitor["custom_uptime_ratio"],
+        uptime
       });
     }
     // cache monitors for 5 mins

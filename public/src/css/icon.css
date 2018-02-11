@@ -20,16 +20,29 @@
 .icon-status {
   border-radius: 100%;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.icon-uptime {
+  height: 2em;
+  width: 100%;
+  cursor: pointer;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  opacity: 0.75;
+}
+
+.icon-status,
+.icon-uptime {
   &.pause {
-    background: #111;
+    background: var(--color-pause);
   }
   &.up {
-    background: var(--color-green);
+    background: var(--color-up);
   }
   &.seem-down {
-    background: #ffdd57;
+    background: var(--color-seem-down);
   }
   &.down {
-    background: var(--color-red);
+    background: var(--color-down);
   }
 }

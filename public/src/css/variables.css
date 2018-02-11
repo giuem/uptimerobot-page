@@ -1,6 +1,11 @@
 :root {
   --color-base: #2d2d55;
   --color-grey: #eef2f6;
-  --color-green: #6AC259;
-  --color-red: #F05228;
+  /* --color-green: #6AC259;
+  --color-red: #F05228; */
+
+  --color-up: #6AC259;
+  --color-seem-down: #ffdd57;
+  --color-down: #F05228;
+  --color-pause: #111;
 }
