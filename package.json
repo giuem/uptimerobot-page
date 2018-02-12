@@ -12,7 +12,8 @@
     "build": "babel src -d build && gulp",
     "clean": "rimraf public/assets build",
     "precommit": "npm run clean && npm run build && git add build public/assets",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "homepage": "https://github.com/giuem/uptimerobot-page",
   "bugs": {
@@ -42,6 +43,7 @@
     "babel-preset-env": "1.6.1",
     "browser-sync": "2.23.6",
     "cheerio": "1.0.0-rc.2",
+    "codecov": "^3.0.0",
     "cssnano": "3.10.0",
     "eslint": "4.17.0",
     "eslint-config-prettier": "2.9.0",
