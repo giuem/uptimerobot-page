@@ -9,7 +9,7 @@ export default ctx => {
         .then(() => {
           logger.debug("Prefetch done.");
         })
-        .catch(err => logger.error(err));
+        .catch(err => logger.error(err.message, err.stack));
     },
     onComplete: function() {
       logger.warn("Cron prefetchMonitors is stopped.");
