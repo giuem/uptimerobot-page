@@ -391,6 +391,17 @@ auto-bind@^1.1.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/auto-bind/download/auto-bind-1.2.0.tgz#8b7e318aad53d43ba8a8ecaf0066d85d5f798cd6"
 
+autoprefixer@7.2.6:
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.2.6.tgz#256672f86f7c735da849c4f07d008abb056067dc"
+  dependencies:
+    browserslist "^2.11.3"
+    caniuse-lite "^1.0.30000805"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^6.0.17"
+    postcss-value-parser "^3.2.3"
+
 autoprefixer@^6.3.1:
   version "6.7.7"
   resolved "http://registry.npm.taobao.org/autoprefixer/download/autoprefixer-6.7.7.tgz#1dbd1c835658e35ce3f9984099db00585c782014"
@@ -400,17 +411,6 @@ autoprefixer@^6.3.1:
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^5.2.16"
-    postcss-value-parser "^3.2.3"
-
-autoprefixer@^7.2.5:
-  version "7.2.5"
-  resolved "http://registry.npm.taobao.org/autoprefixer/download/autoprefixer-7.2.5.tgz#04ccbd0c6a61131b6d13f53d371926092952d192"
-  dependencies:
-    browserslist "^2.11.1"
-    caniuse-lite "^1.0.30000791"
-    normalize-range "^0.1.2"
-    num2fraction "^1.2.2"
-    postcss "^6.0.16"
     postcss-value-parser "^3.2.3"
 
 ava-init@^0.2.0:
@@ -423,7 +423,7 @@ ava-init@^0.2.0:
     read-pkg-up "^2.0.0"
     write-pkg "^3.1.0"
 
-ava@^0.25.0:
+ava@0.25.0:
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/ava/-/ava-0.25.0.tgz#8ac87780514f96a6fd42e1306eaa0752ce3a407f"
   dependencies:
@@ -526,9 +526,9 @@ axios@^0.17.1:
     follow-redirects "^1.2.5"
     is-buffer "^1.1.5"
 
-babel-cli@^6.26.0:
+babel-cli@6.26.0:
   version "6.26.0"
-  resolved "http://registry.npm.taobao.org/babel-cli/download/babel-cli-6.26.0.tgz#502ab54874d7db88ad00b887a06383ce03d002f1"
+  resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.26.0.tgz#502ab54874d7db88ad00b887a06383ce03d002f1"
   dependencies:
     babel-core "^6.26.0"
     babel-polyfill "^6.26.0"
@@ -951,9 +951,9 @@ babel-polyfill@^6.26.0:
     core-js "^2.5.0"
     regenerator-runtime "^0.10.5"
 
-babel-preset-env@^1.6.1:
+babel-preset-env@1.6.1:
   version "1.6.1"
-  resolved "http://registry.npm.taobao.org/babel-preset-env/download/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
+  resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
   dependencies:
     babel-plugin-check-es2015-constants "^6.22.0"
     babel-plugin-syntax-trailing-function-commas "^6.22.0"
@@ -1176,9 +1176,9 @@ browser-sync-ui@v1.0.1:
     socket.io-client "2.0.4"
     stream-throttle "^0.1.3"
 
-browser-sync@^2.23.6:
+browser-sync@2.23.6:
   version "2.23.6"
-  resolved "http://registry.npm.taobao.org/browser-sync/download/browser-sync-2.23.6.tgz#ed0721c92e5b98c71b7bf839b39092ac9f220650"
+  resolved "https://registry.yarnpkg.com/browser-sync/-/browser-sync-2.23.6.tgz#ed0721c92e5b98c71b7bf839b39092ac9f220650"
   dependencies:
     browser-sync-ui v1.0.1
     bs-recipes "1.3.4"
@@ -1215,9 +1215,9 @@ browserslist@^1.3.6, browserslist@^1.5.2, browserslist@^1.7.6:
     caniuse-db "^1.0.30000639"
     electron-to-chromium "^1.2.7"
 
-browserslist@^2.1.2, browserslist@^2.11.1:
+browserslist@^2.1.2, browserslist@^2.11.3:
   version "2.11.3"
-  resolved "http://registry.npm.taobao.org/browserslist/download/browserslist-2.11.3.tgz#fe36167aed1bbcde4827ebfe71347a2cc70b99b2"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.11.3.tgz#fe36167aed1bbcde4827ebfe71347a2cc70b99b2"
   dependencies:
     caniuse-lite "^1.0.30000792"
     electron-to-chromium "^1.3.30"
@@ -1355,9 +1355,13 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000801"
   resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000801.tgz#a1d49def94c4e5aca5ccf1d58812e4668fac19d4"
 
-caniuse-lite@^1.0.30000791, caniuse-lite@^1.0.30000792:
+caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
   resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000792.tgz#d0cea981f8118f3961471afbb43c9a1e5bbf0332"
+
+caniuse-lite@^1.0.30000805:
+  version "1.0.30000808"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000808.tgz#7d759b5518529ea08b6705a19e70dbf401628ffc"
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -1418,9 +1422,9 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "http://registry.npm.taobao.org/chardet/download/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
-cheerio@^1.0.0-rc.2:
+cheerio@1.0.0-rc.2:
   version "1.0.0-rc.2"
-  resolved "http://registry.npm.taobao.org/cheerio/download/cheerio-1.0.0-rc.2.tgz#4b9f53a81b27e4d5dac31c0ffd0cfa03cc6830db"
+  resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.2.tgz#4b9f53a81b27e4d5dac31c0ffd0cfa03cc6830db"
   dependencies:
     css-select "~1.2.0"
     dom-serializer "~0.1.0"
@@ -1899,9 +1903,9 @@ css-what@2.1:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/css-what/download/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
-cssnano@^3.10.0:
+cssnano@3.10.0:
   version "3.10.0"
-  resolved "http://registry.npm.taobao.org/cssnano/download/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
   dependencies:
     autoprefixer "^6.3.1"
     decamelize "^1.1.2"
@@ -2325,15 +2329,15 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.4, escape-string-regexp@^
   version "1.0.5"
   resolved "http://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-eslint-config-prettier@^2.9.0:
+eslint-config-prettier@2.9.0:
   version "2.9.0"
-  resolved "http://registry.npm.taobao.org/eslint-config-prettier/download/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
   dependencies:
     get-stdin "^5.0.1"
 
-eslint-config-standard@^11.0.0-beta.0:
+eslint-config-standard@11.0.0-beta.0:
   version "11.0.0-beta.0"
-  resolved "http://registry.npm.taobao.org/eslint-config-standard/download/eslint-config-standard-11.0.0-beta.0.tgz#f8afe69803d95c685a4b8392b8793188eb03cbb3"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-11.0.0-beta.0.tgz#f8afe69803d95c685a4b8392b8793188eb03cbb3"
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
@@ -2349,9 +2353,9 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.8.0:
+eslint-plugin-import@2.8.0:
   version "2.8.0"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.8.0.tgz#fa1b6ef31fcb3c501c09859c1b86f1fc5b986894"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.8.0.tgz#fa1b6ef31fcb3c501c09859c1b86f1fc5b986894"
   dependencies:
     builtin-modules "^1.1.1"
     contains-path "^0.1.0"
@@ -2364,29 +2368,29 @@ eslint-plugin-import@^2.8.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
-eslint-plugin-node@^5.2.1:
+eslint-plugin-node@5.2.1:
   version "5.2.1"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-node/download/eslint-plugin-node-5.2.1.tgz#80df3253c4d7901045ec87fa660a284e32bdca29"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.2.1.tgz#80df3253c4d7901045ec87fa660a284e32bdca29"
   dependencies:
     ignore "^3.3.6"
     minimatch "^3.0.4"
     resolve "^1.3.3"
     semver "5.3.0"
 
-eslint-plugin-prettier@^2.5.0:
-  version "2.5.0"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-2.5.0.tgz#39a91dd7528eaf19cd42c0ee3f2c1f684606a05f"
+eslint-plugin-prettier@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.6.0.tgz#33e4e228bdb06142d03c560ce04ec23f6c767dd7"
   dependencies:
     fast-diff "^1.1.1"
     jest-docblock "^21.0.0"
 
-eslint-plugin-promise@^3.6.0:
+eslint-plugin-promise@3.6.0:
   version "3.6.0"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-promise/download/eslint-plugin-promise-3.6.0.tgz#54b7658c8f454813dc2a870aff8152ec4969ba75"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.6.0.tgz#54b7658c8f454813dc2a870aff8152ec4969ba75"
 
-eslint-plugin-standard@^3.0.1:
+eslint-plugin-standard@3.0.1:
   version "3.0.1"
-  resolved "http://registry.npm.taobao.org/eslint-plugin-standard/download/eslint-plugin-standard-3.0.1.tgz#34d0c915b45edc6f010393c7eef3823b08565cf2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-3.0.1.tgz#34d0c915b45edc6f010393c7eef3823b08565cf2"
 
 eslint-scope@^3.7.1:
   version "3.7.1"
@@ -2399,9 +2403,9 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@^4.16.0:
-  version "4.16.0"
-  resolved "http://registry.npm.taobao.org/eslint/download/eslint-4.16.0.tgz#934ada9e98715e1d7bbfd6f6f0519ed2fab35cc1"
+eslint@4.17.0:
+  version "4.17.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.17.0.tgz#dc24bb51ede48df629be7031c71d9dc0ee4f3ddf"
   dependencies:
     ajv "^5.3.0"
     babel-code-frame "^6.22.0"
@@ -3131,18 +3135,18 @@ graceful-fs@~1.2.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/graceful-readlink/download/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-gulp-nodemon@^2.2.1:
+gulp-nodemon@2.2.1:
   version "2.2.1"
-  resolved "http://registry.npm.taobao.org/gulp-nodemon/download/gulp-nodemon-2.2.1.tgz#d9bf199f5585458159d3d299153e60b46868b6f4"
+  resolved "https://registry.yarnpkg.com/gulp-nodemon/-/gulp-nodemon-2.2.1.tgz#d9bf199f5585458159d3d299153e60b46868b6f4"
   dependencies:
     colors "^1.0.3"
     event-stream "^3.2.1"
     gulp "^3.9.1"
     nodemon "^1.10.2"
 
-gulp-postcss@^7.0.1:
+gulp-postcss@7.0.1:
   version "7.0.1"
-  resolved "http://registry.npm.taobao.org/gulp-postcss/download/gulp-postcss-7.0.1.tgz#3f1c36db1197140c399c252ddff339129638e395"
+  resolved "https://registry.yarnpkg.com/gulp-postcss/-/gulp-postcss-7.0.1.tgz#3f1c36db1197140c399c252ddff339129638e395"
   dependencies:
     fancy-log "^1.3.2"
     plugin-error "^0.1.2"
@@ -3150,16 +3154,16 @@ gulp-postcss@^7.0.1:
     postcss-load-config "^1.2.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-rev-replace@^0.4.4:
+gulp-rev-replace@0.4.4:
   version "0.4.4"
-  resolved "http://registry.npm.taobao.org/gulp-rev-replace/download/gulp-rev-replace-0.4.4.tgz#9696854131024baf264010b1f51ff8a1382ab94a"
+  resolved "https://registry.yarnpkg.com/gulp-rev-replace/-/gulp-rev-replace-0.4.4.tgz#9696854131024baf264010b1f51ff8a1382ab94a"
   dependencies:
     plugin-error "^0.1.2"
     through2 "^2.0.0"
 
-gulp-rev@^8.1.1:
+gulp-rev@8.1.1:
   version "8.1.1"
-  resolved "http://registry.npm.taobao.org/gulp-rev/download/gulp-rev-8.1.1.tgz#b1106bfaa5653106a11d1612eb0cffde540cb196"
+  resolved "https://registry.yarnpkg.com/gulp-rev/-/gulp-rev-8.1.1.tgz#b1106bfaa5653106a11d1612eb0cffde540cb196"
   dependencies:
     modify-filename "^1.1.0"
     plugin-error "^0.1.2"
@@ -3170,9 +3174,9 @@ gulp-rev@^8.1.1:
     vinyl "^2.1.0"
     vinyl-file "^3.0.0"
 
-gulp-uglify@^3.0.0:
+gulp-uglify@3.0.0:
   version "3.0.0"
-  resolved "http://registry.npm.taobao.org/gulp-uglify/download/gulp-uglify-3.0.0.tgz#0df0331d72a0d302e3e37e109485dddf33c6d1ca"
+  resolved "https://registry.yarnpkg.com/gulp-uglify/-/gulp-uglify-3.0.0.tgz#0df0331d72a0d302e3e37e109485dddf33c6d1ca"
   dependencies:
     gulplog "^1.0.0"
     has-gulplog "^0.1.0"
@@ -3205,9 +3209,9 @@ gulp-util@^3.0.0:
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp@^3.9.1:
+gulp@3.9.1, gulp@^3.9.1:
   version "3.9.1"
-  resolved "http://registry.npm.taobao.org/gulp/download/gulp-3.9.1.tgz#571ce45928dd40af6514fc4011866016c13845b4"
+  resolved "https://registry.yarnpkg.com/gulp/-/gulp-3.9.1.tgz#571ce45928dd40af6514fc4011866016c13845b4"
   dependencies:
     archy "^1.0.0"
     chalk "^1.0.0"
@@ -3436,9 +3440,9 @@ hullabaloo-config-manager@^1.1.0:
     resolve-from "^3.0.0"
     safe-buffer "^5.0.1"
 
-husky@^0.14.3:
+husky@0.14.3:
   version "0.14.3"
-  resolved "http://registry.npm.taobao.org/husky/download/husky-0.14.3.tgz#c69ed74e2d2779769a17ba8399b54ce0b63c12c3"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-0.14.3.tgz#c69ed74e2d2779769a17ba8399b54ce0b63c12c3"
   dependencies:
     is-ci "^1.0.10"
     normalize-path "^1.0.0"
@@ -4785,9 +4789,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "http://registry.npm.taobao.org/negotiator/download/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-nock@^9.1.6:
+nock@9.1.6:
   version "9.1.6"
-  resolved "http://registry.npm.taobao.org/nock/download/nock-9.1.6.tgz#16395af4c45b0fd84d1a4a9668154e16fa6624db"
+  resolved "https://registry.yarnpkg.com/nock/-/nock-9.1.6.tgz#16395af4c45b0fd84d1a4a9668154e16fa6624db"
   dependencies:
     chai ">=1.9.2 <4.0.0"
     debug "^2.2.0"
@@ -4880,9 +4884,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-normalize.css@^7.0.0:
+normalize.css@7.0.0:
   version "7.0.0"
-  resolved "http://registry.npm.taobao.org/normalize.css/download/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -4913,9 +4917,9 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/number-is-nan/download/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nyc@^11.4.1:
+nyc@11.4.1:
   version "11.4.1"
-  resolved "http://registry.npm.taobao.org/nyc/download/nyc-11.4.1.tgz#13fdf7e7ef22d027c61d174758f6978a68f4f5e5"
+  resolved "https://registry.yarnpkg.com/nyc/-/nyc-11.4.1.tgz#13fdf7e7ef22d027c61d174758f6978a68f4f5e5"
   dependencies:
     archy "^1.0.0"
     arrify "^1.0.1"
@@ -5389,9 +5393,9 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "http://registry.npm.taobao.org/posix-character-classes/download/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
 
-postcss-assets@^5.0.0:
+postcss-assets@5.0.0:
   version "5.0.0"
-  resolved "http://registry.npm.taobao.org/postcss-assets/download/postcss-assets-5.0.0.tgz#f721d07d339605fb58414e9f69cf05401c54e709"
+  resolved "https://registry.yarnpkg.com/postcss-assets/-/postcss-assets-5.0.0.tgz#f721d07d339605fb58414e9f69cf05401c54e709"
   dependencies:
     assets "^3.0.0"
     bluebird "^3.5.0"
@@ -5421,16 +5425,16 @@ postcss-convert-values@^2.3.4:
     postcss "^5.0.11"
     postcss-value-parser "^3.1.2"
 
-postcss-custom-properties@^6.2.0:
+postcss-custom-properties@6.2.0:
   version "6.2.0"
-  resolved "http://registry.npm.taobao.org/postcss-custom-properties/download/postcss-custom-properties-6.2.0.tgz#5d929a7f06e9b84e0f11334194c0ba9a30acfbe9"
+  resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-6.2.0.tgz#5d929a7f06e9b84e0f11334194c0ba9a30acfbe9"
   dependencies:
     balanced-match "^1.0.0"
     postcss "^6.0.13"
 
-postcss-debug@^0.4.2:
+postcss-debug@0.4.2:
   version "0.4.2"
-  resolved "http://registry.npm.taobao.org/postcss-debug/download/postcss-debug-0.4.2.tgz#8b161ba2f7f2c55f3549e4b2fa0e95197baa2e3d"
+  resolved "https://registry.yarnpkg.com/postcss-debug/-/postcss-debug-0.4.2.tgz#8b161ba2f7f2c55f3549e4b2fa0e95197baa2e3d"
   dependencies:
     midas "^1.2.1"
     opener "^1.4.1"
@@ -5484,9 +5488,9 @@ postcss-functions@^3.0.0:
     postcss "^6.0.9"
     postcss-value-parser "^3.3.0"
 
-postcss-import@^11.0.0:
-  version "11.0.0"
-  resolved "http://registry.npm.taobao.org/postcss-import/download/postcss-import-11.0.0.tgz#a962e2df82d3bc5a6da6a386841747204f41ef5b"
+postcss-import@11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-11.1.0.tgz#55c9362c9192994ec68865d224419df1db2981f0"
   dependencies:
     postcss "^6.0.1"
     postcss-value-parser "^3.2.3"
@@ -5577,9 +5581,9 @@ postcss-minify-selectors@^2.0.4:
     postcss "^5.0.14"
     postcss-selector-parser "^2.0.0"
 
-postcss-nested@^3.0.0:
+postcss-nested@3.0.0:
   version "3.0.0"
-  resolved "http://registry.npm.taobao.org/postcss-nested/download/postcss-nested-3.0.0.tgz#cde40bd07a078565f3df72e2dc2665871c724852"
+  resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-3.0.0.tgz#cde40bd07a078565f3df72e2dc2665871c724852"
   dependencies:
     postcss "^6.0.14"
     postcss-selector-parser "^3.1.1"
@@ -5681,7 +5685,7 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.0, postcss@^6.0.16:
+postcss@^6.0.0:
   version "6.0.16"
   resolved "http://registry.npm.taobao.org/postcss/download/postcss-6.0.16.tgz#112e2fe2a6d2109be0957687243170ea5589e146"
   dependencies:
@@ -5689,9 +5693,9 @@ postcss@^6.0.0, postcss@^6.0.16:
     source-map "^0.6.1"
     supports-color "^5.1.0"
 
-postcss@^6.0.1, postcss@^6.0.10, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.9:
+postcss@^6.0.1, postcss@^6.0.10, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.17, postcss@^6.0.9:
   version "6.0.17"
-  resolved "http://registry.npm.taobao.org/postcss/download/postcss-6.0.17.tgz#e259a051ca513f81e9afd0c21f7f82eda50c65c5"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.17.tgz#e259a051ca513f81e9afd0c21f7f82eda50c65c5"
   dependencies:
     chalk "^2.3.0"
     source-map "^0.6.1"
@@ -5709,9 +5713,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/preserve/download/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.10.2:
+prettier@1.10.2:
   version "1.10.2"
-  resolved "http://registry.npm.taobao.org/prettier/download/prettier-1.10.2.tgz#1af8356d1842276a99a5b5529c82dd9e9ad3cc93"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.10.2.tgz#1af8356d1842276a99a5b5529c82dd9e9ad3cc93"
 
 pretty-hrtime@^1.0.0:
   version "1.0.3"
@@ -6266,7 +6270,7 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+rimraf@2, rimraf@2.6.2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
   resolved "http://registry.npm.taobao.org/rimraf/download/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
@@ -6775,9 +6779,9 @@ superagent@^1.7.2:
     readable-stream "1.0.27-1"
     reduce-component "1.0.1"
 
-superkoa@^1.0.3:
+superkoa@1.0.3:
   version "1.0.3"
-  resolved "http://registry.npm.taobao.org/superkoa/download/superkoa-1.0.3.tgz#87da2b712d05d00c066d82ad631fd667b34524e2"
+  resolved "https://registry.yarnpkg.com/superkoa/-/superkoa-1.0.3.tgz#87da2b712d05d00c066d82ad631fd667b34524e2"
   dependencies:
     debug "^2.2.0"
     supertest "^1.2.0"
@@ -6942,9 +6946,9 @@ tildify@^1.0.0:
   dependencies:
     os-homedir "^1.0.0"
 
-time-require@^0.1.2:
+time-require@0.1.2:
   version "0.1.2"
-  resolved "http://registry.npm.taobao.org/time-require/download/time-require-0.1.2.tgz#f9e12cb370fc2605e11404582ba54ef5ca2b2d98"
+  resolved "https://registry.yarnpkg.com/time-require/-/time-require-0.1.2.tgz#f9e12cb370fc2605e11404582ba54ef5ca2b2d98"
   dependencies:
     chalk "^0.4.0"
     date-time "^0.1.1"
