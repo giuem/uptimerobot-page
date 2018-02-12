@@ -17,9 +17,6 @@
 
 ## todolist
 
-* error page
-
-
 * document
 
 ## Getting Started
