@@ -7,8 +7,8 @@ const custom_uptime_ranges = [
   ...Array(15).fill("100.000")
 ].join("-");
 
-export function mock() {
-  nock("https://api.uptimerobot.com")
+export function mockSucc() {
+  return nock("https://api.uptimerobot.com")
     .post("/v2/getMonitors")
     .reply(200, {
       stat: "ok",
@@ -39,4 +39,11 @@ export function mock() {
         }
       ]
     });
+}
+
+export function mockFail() {
+  return nock("https://api.uptimerobot.com")
+    .persist()
+    .post("/v2/getMonitors")
+    .replyWithError(502);
 }

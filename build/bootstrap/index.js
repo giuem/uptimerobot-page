@@ -2,4 +2,5 @@
 
 var _app = require("./app");
 
-(0, _app.createServer)();
+const app = (0, _app.createAPP)();
+(0, _app.createServer)(app);

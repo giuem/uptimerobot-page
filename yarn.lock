@@ -4121,6 +4121,13 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
+koa-error@^3.1.1:
+  version "3.1.1"
+  resolved "http://registry.npm.taobao.org/koa-error/download/koa-error-3.1.1.tgz#a6b0930eed53a0b9d00bd2c0b4de34ff4adcdb42"
+  dependencies:
+    consolidate "^0.15.0"
+    lodash "^4.17.4"
+
 koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/koa-is-json/download/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"

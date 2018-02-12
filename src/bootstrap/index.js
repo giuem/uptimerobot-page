@@ -1,2 +1,3 @@
-import { createServer } from "./app";
-createServer();
+import { createAPP, createServer } from "./app";
+const app = createAPP();
+createServer(app);
