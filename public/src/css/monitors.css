@@ -55,9 +55,16 @@
 .monitors-content-wrap {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 200ms ease-out;
+  transition: max-height 300ms ease-out;
+  transform: translateZ(0);
+  .open & {
+    will-change: height;
+  }
 }
 
+.open .monitors-content {
+  will-change: contents;
+}
 .monitor {
   padding: 0.75em 1.5em;
   border-top: #ddd 1px solid;
