@@ -13,7 +13,7 @@
     "clean": "rimraf public/assets build",
     "precommit": "npm run clean && npm run build && git add build public/assets",
     "test": "nyc ava",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "homepage": "https://github.com/giuem/uptimerobot-page",
   "bugs": {
