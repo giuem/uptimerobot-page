@@ -7,11 +7,12 @@
   "author": "giuem <giuemcom@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "start": "node build/bootstrap/app",
+    "start": "node build/bootstrap",
     "dev": "gulp dev",
     "build": "babel src -d build && gulp",
     "clean": "rimraf public/assets build",
-    "precommit": "npm run clean && npm run build && git add build public/assets"
+    "precommit": "npm run clean && npm run build && git add build public/assets",
+    "test": "nyc ava"
   },
   "homepage": "https://github.com/giuem/uptimerobot-page",
   "bugs": {
@@ -35,9 +36,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
+    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.6",
+    "cheerio": "^1.0.0-rc.2",
     "cssnano": "^3.10.0",
     "eslint": "^4.16.0",
     "eslint-config-prettier": "^2.9.0",
@@ -54,6 +57,7 @@
     "gulp-rev-replace": "^0.4.4",
     "gulp-uglify": "^3.0.0",
     "husky": "^0.14.3",
+    "nock": "^9.1.6",
     "normalize.css": "^7.0.0",
     "postcss-assets": "^5.0.0",
     "postcss-custom-properties": "^6.2.0",
@@ -62,6 +66,7 @@
     "postcss-nested": "^3.0.0",
     "prettier": "^1.10.2",
     "rimraf": "^2.6.2",
+    "superkoa": "^1.0.3",
     "time-require": "^0.1.2"
   },
   "eslintConfig": {
@@ -96,5 +101,22 @@
         }
       ]
     ]
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": false,
+    "powerAssert": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }

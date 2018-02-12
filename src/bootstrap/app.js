@@ -12,7 +12,7 @@ config();
 
 logger.setLevel(process.env.LOG_LEVEL);
 
-const app = new Koa();
+export const app = new Koa();
 
 // mount service
 app.context.services = {
@@ -42,7 +42,10 @@ app.use(
 app.use(router.routes());
 
 // start server
-const port = process.env.PAGE_PORT || 3000;
-app.listen(port, function() {
-  logger.info("Server starts at", port);
-});
+const __port = process.env.PAGE_PORT || 3000;
+
+export function createServer(port = __port) {
+  return app.listen(port, function() {
+    logger.info("Server starts at", port);
+  });
+}

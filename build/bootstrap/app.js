@@ -1,5 +1,11 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.app = undefined;
+exports.createServer = createServer;
+
 var _koa = require("koa");
 
 var _koa2 = _interopRequireDefault(_koa);
@@ -36,7 +42,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _logger.logger.setLevel(process.env.LOG_LEVEL);
 
-const app = new _koa2.default();
+const app = exports.app = new _koa2.default();
 
 // mount service
 app.context.services = {
@@ -62,7 +68,10 @@ app.use((0, _koaStaticCache2.default)((0, _path.join)(__dirname, "../../public/a
 app.use(_routes.router.routes());
 
 // start server
-const port = process.env.PAGE_PORT || 3000;
-app.listen(port, function () {
-  _logger.logger.info("Server starts at", port);
-});
+const __port = process.env.PAGE_PORT || 3000;
+
+function createServer(port = __port) {
+  return app.listen(port, function () {
+    _logger.logger.info("Server starts at", port);
+  });
+}

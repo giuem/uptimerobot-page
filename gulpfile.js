@@ -92,7 +92,7 @@ gulp.task("nodemon", function(cb) {
     },
     watch: ["src/", "public/src", "public/views"],
     ext: "js css pug",
-    script: "src/bootstrap/app.js",
+    script: "src/bootstrap/index.js",
     tasks: ["postcss:dev", "js"]
   })
     .on("start", function() {
