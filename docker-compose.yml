@@ -2,7 +2,7 @@ version: "3"
 
 services:
   uptimerobot-page:
-    image: giuem/uptimerobot-page
+    image: giuem/uptimerobot-page:latest@sha256:dd991fa86dae2cb62feea3bbc67ca7b51c4652a311a82801f1b2ceb84fcf56cd
     environment: 
       - UPTIME_ROBOT_API=
       - PAGE_PORT=3000
