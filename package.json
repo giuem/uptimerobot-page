@@ -41,7 +41,7 @@
     "ava": "0.25.0",
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.6.1",
-    "browser-sync": "2.23.6",
+    "browser-sync": "2.24.5",
     "cheerio": "1.0.0-rc.2",
     "codecov": "3.0.0",
     "cssnano": "3.10.0",
