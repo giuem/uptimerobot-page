@@ -43,7 +43,7 @@
     "babel-preset-env": "1.7.0",
     "browser-sync": "2.24.5",
     "cheerio": "1.0.0-rc.2",
-    "codecov": "3.0.3",
+    "codecov": "3.0.4",
     "cssnano": "3.10.0",
     "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
