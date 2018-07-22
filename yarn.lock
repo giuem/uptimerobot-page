@@ -476,15 +476,15 @@ auto-bind@^1.1.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-1.2.1.tgz#807f7910b0210db9eefe133f3492c28e89698b96"
 
-autoprefixer@9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.0.tgz#fce072cb3c9c61374bf6fb7d1906f630afdb2889"
+autoprefixer@9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.0.1.tgz#b5b74aba3fa60b4f1403729e46a6a1246f16818f"
   dependencies:
     browserslist "^4.0.1"
     caniuse-lite "^1.0.30000865"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
-    postcss "^7.0.0"
+    postcss "^7.0.1"
     postcss-value-parser "^3.2.3"
 
 ava-init@^0.2.0:
@@ -5961,9 +5961,9 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.10, postcss@^6.0.14, postcss@^6.0.1
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.0.tgz#163f70d2fe2715c6d4a4b3d300051c1ea9594aa9"
+postcss@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.1.tgz#db20ca4fc90aa56809674eea75864148c66b67fa"
   dependencies:
     chalk "^2.4.1"
     source-map "^0.6.1"
