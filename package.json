@@ -68,7 +68,7 @@
     "postcss-debug": "0.4.2",
     "postcss-import": "11.1.0",
     "postcss-nested": "3.0.0",
-    "prettier": "1.14.0",
+    "prettier": "1.14.1",
     "rimraf": "2.6.2",
     "superkoa": "1.0.3",
     "time-require": "0.1.2"
