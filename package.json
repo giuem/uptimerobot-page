@@ -62,7 +62,7 @@
     "husky": "0.14.3",
     "nock": "9.6.1",
     "normalize.css": "8.0.0",
-    "nyc": "12.0.2",
+    "nyc": "13.0.1",
     "postcss-assets": "5.0.0",
     "postcss-custom-properties": "7.0.0",
     "postcss-debug": "0.4.2",
