@@ -1232,16 +1232,16 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-browser-sync-client@^2.25.0:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/browser-sync-client/-/browser-sync-client-2.25.0.tgz#ef42be8574b72ea68e6947fc42afd3807d6d6e62"
+browser-sync-client@^2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/browser-sync-client/-/browser-sync-client-2.26.0.tgz#ea8b38a251e8445177e23a0e37b68b1e4eeff0a0"
   dependencies:
     mitt "^1.1.3"
     rxjs "^5.5.6"
 
-browser-sync-ui@^2.25.0:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/browser-sync-ui/-/browser-sync-ui-2.25.0.tgz#3a8d4032f88afc3fbd72f5850d143b40aa49e83b"
+browser-sync-ui@^2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/browser-sync-ui/-/browser-sync-ui-2.26.0.tgz#8fd7ec972fc30288ca3706df6c3e79ef784710e5"
   dependencies:
     async-each-series "0.1.1"
     connect-history-api-fallback "^1"
@@ -1250,15 +1250,15 @@ browser-sync-ui@^2.25.0:
     socket.io-client "^2.0.4"
     stream-throttle "^0.1.3"
 
-browser-sync@2.25.0:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/browser-sync/-/browser-sync-2.25.0.tgz#325b1654ba1a99f3b4711f892c42f3998251275c"
+browser-sync@2.26.0:
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/browser-sync/-/browser-sync-2.26.0.tgz#63b401c51b715e85dc4df9ef1d135a63a6d3889e"
   dependencies:
-    browser-sync-client "^2.25.0"
-    browser-sync-ui "^2.25.0"
+    browser-sync-client "^2.26.0"
+    browser-sync-ui "^2.26.0"
     bs-recipes "1.3.4"
     bs-snippet-injector "^2.0.1"
-    chokidar "1.7.0"
+    chokidar "^2.0.4"
     connect "3.6.6"
     connect-history-api-fallback "^1"
     dev-ip "^1.0.1"
@@ -1537,7 +1537,7 @@ cheerio@1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chokidar@1.7.0, chokidar@^1.4.2, chokidar@^1.6.1:
+chokidar@^1.4.2, chokidar@^1.6.1:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
   dependencies:
@@ -1552,7 +1552,7 @@ chokidar@1.7.0, chokidar@^1.4.2, chokidar@^1.6.1:
   optionalDependencies:
     fsevents "^1.0.0"
 
-chokidar@^2.0.2:
+chokidar@^2.0.2, chokidar@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
   dependencies:
