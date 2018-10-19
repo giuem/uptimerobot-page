@@ -42,7 +42,7 @@ export function createAPP() {
   );
   // static
   app.use(
-    staticCache(join(__dirname, "../../public/assets"), {
+    staticCache(join(__dirname, "../../build/public/"), {
       maxAge: process.env.NODE_ENV === "production" ? 365 * 24 * 60 * 60 : 0,
       gzip: true
     })

@@ -18,6 +18,7 @@ function mountConfig(app) {
           this[LINKS] = "";
         } else {
           this[LINKS] = [];
+
           for (let link of env.PAGE_LINKS.split(",,")) {
             const l = link.split("|");
             this[LINKS].push({
@@ -27,9 +28,10 @@ function mountConfig(app) {
           }
         }
       }
+
       return this[LINKS];
     }
-  };
 
+  };
   app.context.config = config;
 }

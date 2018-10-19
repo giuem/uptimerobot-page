@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logger = undefined;
+exports.logger = void 0;
 
 var _immutable = require("immutable");
 
@@ -43,6 +43,8 @@ class Logger {
   error(...msgs) {
     if (LEVEL.get("error") >= this.level) console.log(time(), "[ERROR]", ...msgs);
   }
+
 }
 
-const logger = exports.logger = new Logger();
+const logger = new Logger();
+exports.logger = logger;

@@ -3,12 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
 var _cron = require("cron");
 
 var _logger = require("../lib/logger");
 
-exports.default = ctx => {
+var _default = ctx => {
   const prefetchMonitors = new _cron.CronJob({
     cronTime: "*/5 * * * *",
     onTick: function () {
@@ -25,3 +26,5 @@ exports.default = ctx => {
 
   _logger.logger.info("Cron job starts.");
 };
+
+exports.default = _default;

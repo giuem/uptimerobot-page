@@ -6,39 +6,27 @@ Object.defineProperty(exports, "__esModule", {
 exports.createAPP = createAPP;
 exports.createServer = createServer;
 
-var _koa = require("koa");
-
-var _koa2 = _interopRequireDefault(_koa);
+var _koa = _interopRequireDefault(require("koa"));
 
 var _dotenv = require("dotenv");
 
-var _koaViews = require("koa-views");
+var _koaViews = _interopRequireDefault(require("koa-views"));
 
-var _koaViews2 = _interopRequireDefault(_koaViews);
-
-var _koaError = require("koa-error");
-
-var _koaError2 = _interopRequireDefault(_koaError);
+var _koaError = _interopRequireDefault(require("koa-error"));
 
 var _routes = require("../routes");
 
-var _uptimerobot = require("../services/uptimerobot");
-
-var _uptimerobot2 = _interopRequireDefault(_uptimerobot);
+var _uptimerobot = _interopRequireDefault(require("../services/uptimerobot"));
 
 var _path = require("path");
 
 var _logger = require("../lib/logger");
 
-var _koaStaticCache = require("koa-static-cache");
-
-var _koaStaticCache2 = _interopRequireDefault(_koaStaticCache);
+var _koaStaticCache = _interopRequireDefault(require("koa-static-cache"));
 
 var _config = require("./config");
 
-var _cron = require("./cron");
-
-var _cron2 = _interopRequireDefault(_cron);
+var _cron = _interopRequireDefault(require("./cron"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47,41 +35,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _logger.logger.setLevel(process.env.LOG_LEVEL);
 
 function createAPP() {
-  const app = new _koa2.default();
+  const app = new _koa.default(); // mount service
 
-  // mount service
   app.context.services = {
-    uptimerobot: new _uptimerobot2.default(process.env.UPTIME_ROBOT_API)
-  };
-  // mount config
-  (0, _config.mountConfig)(app);
+    uptimerobot: new _uptimerobot.default(process.env.UPTIME_ROBOT_API)
+  }; // mount config
 
-  // start cron
-  (0, _cron2.default)(app.context);
+  (0, _config.mountConfig)(app); // start cron
 
-  // error
-  app.use((0, _koaError2.default)({
+  (0, _cron.default)(app.context); // error
+
+  app.use((0, _koaError.default)({
     engine: "pug",
     template: (0, _path.join)(__dirname, "../views/error.pug")
-  }));
+  })); // views
 
-  // views
-  app.use((0, _koaViews2.default)((0, _path.join)(__dirname, "../views"), {
+  app.use((0, _koaViews.default)((0, _path.join)(__dirname, "../views"), {
     extension: "pug"
-  }));
-  // static
-  app.use((0, _koaStaticCache2.default)((0, _path.join)(__dirname, "../../public/assets"), {
+  })); // static
+
+  app.use((0, _koaStaticCache.default)((0, _path.join)(__dirname, "../../build/public/"), {
     maxAge: process.env.NODE_ENV === "production" ? 365 * 24 * 60 * 60 : 0,
     gzip: true
-  }));
+  })); // routes
 
-  // routes
   app.use(_routes.router.routes());
-
   return app;
-}
+} // start server
 
-// start server
+
 const __port = process.env.PAGE_PORT || 3000;
 
 function createServer(app, port = __port) {

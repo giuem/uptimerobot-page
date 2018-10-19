@@ -3,7 +3,7 @@ const gulp = require("gulp");
 
 gulp.task("default", ["js", "css"], function() {
   const revReplace = require("gulp-rev-replace");
-  const manifest = gulp.src("./public/assets/rev-manifest.json");
+  const manifest = gulp.src("build/public/rev-manifest.json");
 
   return gulp
     .src("./src/views/index.pug")
@@ -15,20 +15,20 @@ gulp.task("css", ["postcss"], function() {
   const rev = require("gulp-rev");
 
   return gulp
-    .src("./public/assets/css/*.css", { base: "./public/assets" })
-    .pipe(gulp.dest("./public/assets"))
+    .src("build/public/css/*.css", { base: "build/public" })
+    .pipe(gulp.dest("build/public"))
     .pipe(rev())
-    .pipe(gulp.dest("./public/assets"))
+    .pipe(gulp.dest("build/public"))
     .pipe(rev.manifest())
-    .pipe(gulp.dest("./public/assets"));
+    .pipe(gulp.dest("build/public"));
 });
 
 gulp.task("js", function() {
   const uglify = require("gulp-uglify");
   return gulp
-    .src("./public/src/js/*.js")
+    .src("src/public/js/*.js")
     .pipe(uglify())
-    .pipe(gulp.dest("./public/assets/js"));
+    .pipe(gulp.dest("build/public/js"));
 });
 
 gulp.task("postcss", function() {
@@ -36,7 +36,7 @@ gulp.task("postcss", function() {
   const plugins = [
     require("postcss-import")(),
     require("postcss-assets")({
-      basePath: "public/src/"
+      basePath: "src/public/"
     }),
     require("postcss-nested"),
     require("postcss-custom-properties"),
@@ -49,9 +49,9 @@ gulp.task("postcss", function() {
     })
   ];
   return gulp
-    .src("./public/src/css/app.css")
+    .src("src/public/css/app.css")
     .pipe(postcss(plugins))
-    .pipe(gulp.dest("./public/assets/css"));
+    .pipe(gulp.dest("build/public/css"));
 });
 
 gulp.task("postcss:dev", function() {
@@ -60,15 +60,15 @@ gulp.task("postcss:dev", function() {
   const plugins = [
     require("postcss-import")(),
     require("postcss-assets")({
-      basePath: "public/src/"
+      basePath: "src/public/"
     }),
     require("postcss-nested"),
     require("postcss-custom-properties")
   ];
   return gulp
-    .src("./public/src/css/app.css")
+    .src("src/public/css/app.css")
     .pipe(postcss(plugins))
-    .pipe(gulp.dest("./public/assets/css"));
+    .pipe(gulp.dest("build/public/css"));
 });
 
 gulp.task("dev", ["nodemon"], function() {
@@ -77,6 +77,7 @@ gulp.task("dev", ["nodemon"], function() {
   browserSync({
     proxy: "localhost:3000",
     port: 5000,
+    open: false,
     notify: true
   });
 });
@@ -90,7 +91,7 @@ gulp.task("nodemon", function(cb) {
     execMap: {
       js: "babel-node"
     },
-    watch: ["src/", "public/src", "public/views"],
+    watch: ["src/"],
     ext: "js css pug",
     script: "src/bootstrap/index.js",
     tasks: ["postcss:dev", "js"]

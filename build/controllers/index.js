@@ -3,9 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const Index = exports.Index = async ctx => {
+exports.Index = void 0;
+
+const Index = async ctx => {
   await ctx.render("index", {
     config: ctx.config,
     data: await ctx.services.uptimerobot.list()
   });
 };
+
+exports.Index = Index;
