@@ -43,7 +43,7 @@
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "autoprefixer": "^9.1.5",
-    "ava": "^0.25.0",
+    "ava": "1.0.0-rc.1",
     "browser-sync": "^2.26.0",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.1.0",
@@ -101,7 +101,7 @@
     "files": [
       "test/test.js"
     ],
-    "source": [
+    "sources": [
       "src/**/*.js"
     ],
     "concurrency": 5,
@@ -110,13 +110,13 @@
     "tap": false,
     "powerAssert": true,
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "@babel/register"
+    ]
   },
   "nyc": {
     "exclude": [
-      "src/lib/*.js"
+      "src/lib/*.js",
+      "src/public/**/*"
     ]
   }
 }
