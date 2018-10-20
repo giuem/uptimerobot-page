@@ -1,7 +1,7 @@
 import Koa from "koa";
 import { config } from "dotenv";
 import KoaViews from "koa-views";
-import KoaError from "koa-error";
+import KoaError from "./error";
 import { router } from "../routes";
 import UptimeRobotService from "../services/uptimerobot";
 import { join } from "path";
@@ -16,6 +16,8 @@ logger.setLevel(process.env.LOG_LEVEL);
 export function createAPP() {
   const app = new Koa();
 
+  app.use(KoaError);
+
   // mount service
   app.context.services = {
     uptimerobot: new UptimeRobotService(process.env.UPTIME_ROBOT_API)
@@ -26,13 +28,13 @@ export function createAPP() {
   // start cron
   cron(app.context);
 
-  // error
-  app.use(
-    KoaError({
-      engine: "pug",
-      template: join(__dirname, "../views/error.pug")
-    })
-  );
+  // // error
+  // app.use(
+  //   KoaError({
+  //     engine: "pug",
+  //     template: join(__dirname, "../views/error.pug")
+  //   })
+  // );
 
   // views
   app.use(

@@ -45,5 +45,5 @@ export function mockFail() {
   return nock("https://api.uptimerobot.com")
     .persist()
     .post("/v2/getMonitors")
-    .replyWithError(502);
+    .reply(502);
 }

@@ -5116,14 +5116,6 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
-koa-error@^3.1.1:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/koa-error/-/koa-error-3.2.0.tgz#12958fa4ef7264ec2c4c7e4423a39d1a2c947d5c"
-  integrity sha512-43fD2lEdEz69NEMYqq9XsxGs3AZEYDLxOST0woX8KEyaNPbdlQGCcQyOpf3CVPShkYPzywbOKZndyebZsfIk7g==
-  dependencies:
-    consolidate "^0.15.0"
-    lodash "^4.17.4"
-
 koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"

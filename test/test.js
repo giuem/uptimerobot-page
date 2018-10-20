@@ -5,9 +5,8 @@ import { mockSucc, mockFail } from "./mock";
 import { createAPP } from "../src/bootstrap/app";
 import { logger } from "../src/lib/logger";
 
-logger.setLevel("ignore");
-
 test.beforeEach(({ context }) => {
+  logger.setLevel("ignore");
   context.app = createAPP();
 });
 
