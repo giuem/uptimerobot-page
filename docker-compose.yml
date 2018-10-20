@@ -3,8 +3,9 @@ version: "3"
 services:
   uptimerobot-page:
     image: giuem/uptimerobot-page
+    # build: .
     environment: 
-      - UPTIME_ROBOT_API=
+      - UPTIME_ROBOT_API=u479099-c8a3538837d06a310c2985d2
       - PAGE_PORT=3000
       - PAGE_TITLE=
       - PAGE_COPYRIGHT=
