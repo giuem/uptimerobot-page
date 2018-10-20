@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install && yarn cache clean
 COPY . .
-RUN yarn test && yarn build
+RUN yarn build
 
 FROM node:10-alpine
 
