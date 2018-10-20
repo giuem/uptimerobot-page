@@ -12,7 +12,7 @@
     "build:server": "babel src -d build",
     "build": "npm run build:server && gulp",
     "clean": "rimraf build",
-    "precommit": "npm run clean && npm run build && git add build",
+    "precommit": "npm run test",
     "test": "nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
@@ -116,7 +116,8 @@
   "nyc": {
     "exclude": [
       "src/public/**/*",
-      "src/**/*.spec.js"
+      "src/**/*.spec.js",
+      "src/lib/logger.js"
     ]
   }
 }
