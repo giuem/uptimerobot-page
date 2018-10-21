@@ -6,6 +6,7 @@ services:
     # build: .
     environment: 
       - UPTIME_ROBOT_API=u479099-c8a3538837d06a310c2985d2
+      - PAGE_NAMEFORMAT=
       - PAGE_PORT=3000
       - PAGE_TITLE=
       - PAGE_COPYRIGHT=
