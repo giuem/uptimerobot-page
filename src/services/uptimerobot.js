@@ -64,7 +64,7 @@ export default class UptimeRobotService {
       }
   
       //Check manual index
-      if (result.index){
+      if (result.index != undefined){
         isIndexed = true;
         data.groups[groupName].index = result.index;
       }
