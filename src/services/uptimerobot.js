@@ -58,7 +58,7 @@ export default class UptimeRobotService {
       let result = parser.parse(monitor["friendly_name"]); 
       const [
         groupName = result.group,
-        monitorName = result.name,
+        monitorName = result.name
       ];
       // init group
       if (!data.groups.hasOwnProperty(groupName)) {
