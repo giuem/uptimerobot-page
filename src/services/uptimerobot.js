@@ -100,7 +100,7 @@ export default class UptimeRobotService {
 
     //Sort if indexed
     if (isIndexed){
-      data.groups[groupName].sort(function(a, b){
+      data.groups.sort(function(a, b){
         return a.index - b.index;
       })
     }
