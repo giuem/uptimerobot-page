@@ -20,11 +20,16 @@ function lastDays(distance) {
   return { dates, ranges: ranges.join("-") };
 }
 
+function findArrayIndex(groups, groupName) {
+  return groups.find(({ name }) => name === groupName );
+}
+
 export default class UptimeRobotService {
   constructor(key) {
     this.api = new UptimeRobot(key);
     this.cache = new Cache();
   }
+
 
   async prefetchList() {
     let data = {
@@ -33,19 +38,21 @@ export default class UptimeRobotService {
         down: 0,
         checktime: format(Date.now(), "MMMM Do YYYY, H:mm")
       },
-      groups: {
+      groups: [
         /**
-         * groupName: {
+         * [
+         *    name: groupName,
          *    index: undefined,
          *    down: 0,
          *    monitors: [{
          *      name,
          *      status
          *    }]
-         * }
+         * ]
          *
          */
-      }
+      ]
+
     };
     const { dates, ranges } = lastDays(distance);
     const { monitors } = await this.api.getMonitors({
@@ -59,14 +66,20 @@ export default class UptimeRobotService {
       let result = parser.parse(monitor["friendly_name"]); 
       const groupName = result.group, monitorName = result.name;
       // init group
-      if (!data.groups.hasOwnProperty(groupName)) {
-        data.groups[groupName] = { index: undefined, down: 0, monitors: [] };
+      const arrayIndex = findArrayIndex(data.groups, groupName);
+      if (arrayIndex === undefined) {
+        arrayIndex = data.groups.push([{
+            name: groupName,
+            index: undefined,
+            down: 0,
+            monitors: []
+          }]) - 1;
       }
   
       //Check manual index
       if (result.index != undefined){
         isIndexed = true;
-        data.groups[groupName].index = result.index;
+        data.groups[arrayIndex].index = result.index;
       }
 
       /**
@@ -81,7 +94,7 @@ export default class UptimeRobotService {
       // data.sum.total++;
       if (status > 2) {
         data.sum.down++;
-        data.groups[groupName].down++;
+        data.groups[arrayIndex].down++;
       }
       // last 30 days uptime
       const range = monitor["custom_uptime_ranges"].split("-");
@@ -90,7 +103,7 @@ export default class UptimeRobotService {
         uptime.push({ date: dates[i], uptime: range[i] });
       }
       // push monitor
-      data.groups[groupName].monitors.push({
+      data.groups[arrayIndex].monitors.push({
         name: monitorName,
         status,
         totalUptime: monitor["custom_uptime_ratio"],
@@ -100,9 +113,7 @@ export default class UptimeRobotService {
 
     //Sort if indexed
     if (isIndexed){
-      data.groups.sort(function(a, b){
-        return a.index - b.index;
-      })
+      data.groups.sort((a, b)=> a.index - b.index );
     }
     // cache monitors (update pre 5m)
     return this.cache.put("monitors", data);
