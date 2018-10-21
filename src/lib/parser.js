@@ -1,7 +1,7 @@
 const patterns = {
   name: "(?<name>.+)",
   group: "(?<group>.+)",
-  index: "(?<index>\d+)?"
+  index: "(?<index>\\d+)?"
 };
 /**
  * parse monitor name
@@ -20,7 +20,7 @@ export class Parser {
     for (const pattern in patterns) {
       const index = rule.indexOf(pattern);
       if (index > -1) {
-        rule = rule.replace(`$${pattern}`, `(${patterns[pattern]})`);
+        rule = rule.replace(`$${pattern}`, `${patterns[pattern]}`);
       }
     }
 

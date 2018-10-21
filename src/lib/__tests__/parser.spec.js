@@ -33,13 +33,6 @@ test("parse $group/$index/$name when index is omitted", t => {
   t.is(result.index, undefined);
 });
 
-test("parse $group/$name", t => {
-  const parser = new Parser("$group/$name");
-  let result = parser.parse("aaa/bbb");
-  t.is(result.name, "bbb");
-  t.is(result.group, "aaa");
-});
-
 test("parse $name/$group", t => {
   let parser = new Parser("$name/$group");
   let result = parser.parse("aaa/bbb");
