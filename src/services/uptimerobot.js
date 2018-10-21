@@ -35,6 +35,7 @@ export default class UptimeRobotService {
       groups: {
         /**
          * groupName: {
+         *    index: undefined,
          *    down: 0,
          *    monitors: [{
          *      name,
@@ -50,11 +51,24 @@ export default class UptimeRobotService {
       custom_uptime_ratios: distance,
       custom_uptime_ranges: ranges
     });
+    
+    var isIndexed = false;
     for (let monitor of monitors) {
-      const [groupName, monitorName] = monitor["friendly_name"].split("/");
+      let parser = new Parser(process.env.PAGE_NAMEFORMAT || "$group/$name");
+      let result = parser.parse(monitor["friendly_name"]); 
+      const [
+        groupName = result.group,
+        monitorName = result.name,
+      ]
       // init group
       if (!data.groups.hasOwnProperty(groupName)) {
-        data.groups[groupName] = { down: 0, monitors: [] };
+        data.groups[groupName] = { index: undefined, down: 0, monitors: [] };
+      }
+  
+      //Check manual index
+      if (result.index){
+        isIndexed = true;
+        data.groups[groupName].index = result.index;
       }
 
       /**
@@ -84,6 +98,13 @@ export default class UptimeRobotService {
         totalUptime: monitor["custom_uptime_ratio"],
         uptime
       });
+    }
+
+    //Sort if indexed
+    if (isIndexed){
+      data.groups[groupName].sort(function(a, b){
+        return a.index - b.index;
+      })
     }
     // cache monitors (update pre 5m)
     return this.cache.put("monitors", data);
