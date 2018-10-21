@@ -46,6 +46,6 @@ To put index into your parser, you will able to sort your group in page manually
 > ```
 > And leave the blank of the index for other monitors in the same group.
 > ```
-> GroupA//MonitorA
+> GroupA//MonitorB
 > ```
 

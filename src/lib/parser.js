@@ -29,6 +29,8 @@ export class Parser {
   }
 
   parse(str) {
-    return str.match(this.regex).groups;
+    const matches = str.match(this.regex).groups;
+    if (matches.index) matches.index = parseInt(matches.index);
+    return matches;
   }
 }
