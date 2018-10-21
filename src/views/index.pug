@@ -36,7 +36,10 @@ html
                 .icon.icon-status-sum.up
               div(style="letter-spacing:-0.5px;")
                 if (data.sum.down > 0)
-                  .summary-detail= data.sum.down + " systems are outage." 
+                  if (data.sum.down = 1)
+                    .summary-detail= data.sum.down + " system is outage." 
+                  else
+                    .summary-detail= data.sum.down + " systems are outage." 
                 else
                   .summary-detail="All systems are operational." 
                 .summary-checktime="Last check at " + data.sum.checktime
