@@ -2,12 +2,14 @@ import { CronJob } from "cron";
 import { logger } from "../lib/logger";
 export default ctx => {
   const prefetchMonitors = new CronJob({
-    cronTime: "*/5 * * * *",
+    cronTime: process.env.CRONTIME || "*/1 * * * *",
     onTick: function() {
       ctx.services.uptimerobot
         .prefetchList()
         .then(() => {
-          logger.debug("Prefetch done.");
+          logger.debug(
+            "Prefetch done. Next check at " + prefetchMonitors.nextDates()
+          );
         })
         .catch(err => logger.error({ message: err.message, stack: err.stack }));
     },

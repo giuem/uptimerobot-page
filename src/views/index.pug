@@ -46,17 +46,17 @@ html
 
       section.content
         .container
-          - for (var groupName in data.groups)
+          - for (var index in data.groups)
             .card.monitors.has-children
               .monitors-header
-                .monitors-header-title=groupName
-                if (data.groups[groupName].down > 0)
+                .monitors-header-title=data.groups[index].name
+                if (data.groups[index].down > 0)
                   .icon.icon-status.down
                 else
                   .icon.icon-status.up
               .monitors-content-wrap
                 .monitors-content
-                  each monitor in data.groups[groupName].monitors
+                  each monitor in data.groups[index].monitors
                     .monitor
                       .monitor-header
                         .monitor-name=monitor.name
