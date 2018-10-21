@@ -77,8 +77,6 @@ export default class UptimeRobotService {
       // Check manual index
       if (result.index !== undefined) {
         isIndexed = true;
-        console.log(data.groups);
-        console.log(arrayIndex);
         data.groups[arrayIndex].index = result.index;
       }
 
