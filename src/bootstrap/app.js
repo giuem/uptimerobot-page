@@ -57,7 +57,7 @@ export function createAPP() {
 }
 
 // start server
-const __port = process.env.PAGE_PORT || 3000;
+const __port = process.env.PORT || 3000;
 
 export function createServer(app, port = __port) {
   return app.listen(port, function() {
