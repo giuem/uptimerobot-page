@@ -1,7 +1,7 @@
 import UptimeRobot from "uptimerobot-apiv2";
 import { Cache } from "memory-cache";
 import { logger } from "../lib/logger";
-import { Parser } from "../lib/Parser";
+import { Parser } from "../lib/parser";
 import { format, addDays, addSeconds, startOfDay } from "date-fns";
 
 const distance = 45;
