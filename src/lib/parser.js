@@ -20,7 +20,7 @@ export class Parser {
     for (const pattern in patterns) {
       const index = rule.indexOf(pattern);
       if (index > -1) {
-        rule = rule.replace(`$${pattern}`, `${patterns[pattern]}`);
+        rule = rule.replace(`%${pattern}`, `${patterns[pattern]}`);
       }
     }
 

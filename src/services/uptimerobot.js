@@ -21,7 +21,7 @@ function lastDays(distance) {
 }
 
 function findArrayIndex(groups, groupName) {
-  return groups.find(({ name }) => name === groupName );
+  return groups.findIndex(({ name }) => name === groupName);
 }
 
 export default class UptimeRobotService {
@@ -29,7 +29,6 @@ export default class UptimeRobotService {
     this.api = new UptimeRobot(key);
     this.cache = new Cache();
   }
-
 
   async prefetchList() {
     let data = {
@@ -52,33 +51,34 @@ export default class UptimeRobotService {
          *
          */
       ]
-
     };
     const { dates, ranges } = lastDays(distance);
     const { monitors } = await this.api.getMonitors({
       custom_uptime_ratios: distance,
       custom_uptime_ranges: ranges
     });
-    
     var isIndexed = false;
     for (let monitor of monitors) {
-      let parser = new Parser(process.env.PAGE_NAMEFORMAT || "$group/$name");
-      let result = parser.parse(monitor["friendly_name"]); 
-      const groupName = result.group, monitorName = result.name;
+      let parser = new Parser(process.env.PAGE_NAMEFORMAT || "%group/%name");
+      let result = parser.parse(monitor["friendly_name"]);
+      const groupName = result.group;
+      const monitorName = result.name;
       // init group
-      const arrayIndex = findArrayIndex(data.groups, groupName);
-      if (arrayIndex === undefined) {
-        arrayIndex = data.groups.push([{
+      let arrayIndex = findArrayIndex(data.groups, groupName);
+      if (arrayIndex < 0) {
+        arrayIndex =
+          data.groups.push({
             name: groupName,
-            index: undefined,
             down: 0,
             monitors: []
-          }]) - 1;
+          }) - 1;
       }
-  
-      //Check manual index
-      if (result.index != undefined){
+
+      // Check manual index
+      if (result.index !== undefined) {
         isIndexed = true;
+        console.log(data.groups);
+        console.log(arrayIndex);
         data.groups[arrayIndex].index = result.index;
       }
 
@@ -111,9 +111,9 @@ export default class UptimeRobotService {
       });
     }
 
-    //Sort if indexed
-    if (isIndexed){
-      data.groups.sort((a, b)=> a.index - b.index );
+    // Sort if indexed
+    if (isIndexed) {
+      data.groups.sort((a, b) => a.index - b.index);
     }
     // cache monitors (update pre 5m)
     return this.cache.put("monitors", data);

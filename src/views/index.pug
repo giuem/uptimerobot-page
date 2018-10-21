@@ -49,7 +49,7 @@ html
           - for (var index in data.groups)
             .card.monitors.has-children
               .monitors-header
-                .monitors-header-title=data.groups[index].groupName
+                .monitors-header-title=data.groups[index].name
                 if (data.groups[index].down > 0)
                   .icon.icon-status.down
                 else
