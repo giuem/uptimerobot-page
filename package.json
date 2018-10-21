@@ -21,7 +21,7 @@
     "url": "https://github.com/giuem/uptimerobot-page/issues"
   },
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10"
   },
   "dependencies": {
     "cron": "^1.3.0",
