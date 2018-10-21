@@ -17,6 +17,6 @@ RUN yarn install && yarn cache clean
 COPY --from=BUILDER /app/build ./build
 RUN yarn install && yarn cache clean
 # To ensure build success when .env is not exist.
-COPY .env* .
+COPY .env* ./
 
 CMD ["node", "build/bootstrap"]
