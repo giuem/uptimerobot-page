@@ -59,7 +59,7 @@ export default class UptimeRobotService {
       const [
         groupName = result.group,
         monitorName = result.name,
-      ]
+      ];
       // init group
       if (!data.groups.hasOwnProperty(groupName)) {
         data.groups[groupName] = { index: undefined, down: 0, monitors: [] };
