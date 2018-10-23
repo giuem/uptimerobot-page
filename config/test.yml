@@ -1,0 +1,17 @@
+# app:
+#   port: 3000
+#   log_level: debug
+#   crontime: "*/5 * * * *"
+
+uptimerobot:
+  api_key: fake_api_key
+  # pattern: "%group/%name"
+
+# website: 
+#   title: "Uptime Robot Status"
+#   copyright: "Uptime Robot"
+#   links:
+#     - name: Home
+#       href: https://uptimerobot.com
+#     - name: GitHub
+#       href: https://github.com/giuem/uptimerobot-page

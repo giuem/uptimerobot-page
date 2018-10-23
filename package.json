@@ -13,7 +13,7 @@
     "build": "npm run build:server && gulp",
     "clean": "rimraf build",
     "precommit": "npm run test",
-    "test": "nyc ava",
+    "test": "NODE_ENV=test nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "homepage": "https://github.com/giuem/uptimerobot-page",
@@ -24,10 +24,12 @@
     "node": ">=10"
   },
   "dependencies": {
+    "config": "^2.0.1",
     "cron": "^1.3.0",
     "date-fns": "^1.29.0",
     "dotenv": "^6.0.0",
     "immutable": "^3.8.2",
+    "js-yaml": "^3.12.0",
     "koa": "^2.4.1",
     "koa-router": "^7.3.0",
     "koa-static-cache": "^5.1.2",

@@ -1,0 +1,20 @@
+# read and overwirte configure from environment variables
+# DO NOT EDIT IT
+app:
+  port: PORT
+  log_level: LOG_LEVEL
+  crontime: CRON_TIME
+
+uptimerobot:
+  api_key: UPTIME_ROBOT_API
+  pattern: UPTIME_ROBOT_NAME_PATTERN
+
+
+website: 
+  title: "WEBSITE_TITLE"
+  copyright: "WEBSITE_COPYRIGHT"
+  # links:
+  #   - name: home
+  #     link: https://uptimerobot.com
+  #   - name: GitHub
+  #     link: https://github.com/giuem/uptimerobot-page

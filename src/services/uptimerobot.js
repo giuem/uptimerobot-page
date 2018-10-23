@@ -28,6 +28,7 @@ export default class UptimeRobotService {
   constructor(key) {
     this.api = new UptimeRobot(key);
     this.cache = new Cache();
+    this.parser = new Parser(require("config").get("uptimerobot.pattern"));
   }
 
   async prefetchList() {
@@ -59,8 +60,7 @@ export default class UptimeRobotService {
     });
     var isIndexed = false;
     for (let monitor of monitors) {
-      let parser = new Parser(process.env.PAGE_NAMEFORMAT || "%group/%name");
-      let result = parser.parse(monitor["friendly_name"]);
+      let result = this.parser.parse(monitor["friendly_name"]);
       const groupName = result.group;
       const monitorName = result.name;
       // init group

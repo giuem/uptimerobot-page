@@ -6,8 +6,8 @@ import { createAPP } from "../src/bootstrap/app";
 import { logger } from "../src/lib/logger";
 
 test.beforeEach(({ context }) => {
-  logger.setLevel("ignore");
   context.app = createAPP();
+  logger.setLevel("ignore");
 });
 
 test.serial("GET /", async t => {

@@ -1,5 +1,4 @@
 import Koa from "koa";
-import { config } from "dotenv";
 import KoaViews from "koa-views";
 import KoaError from "./error";
 import { router } from "../routes";
@@ -9,32 +8,24 @@ import { logger } from "../lib/logger";
 import staticCache from "koa-static-cache";
 import { mountConfig } from "./config";
 import cron from "./cron";
-config();
-
-logger.setLevel(process.env.LOG_LEVEL);
 
 export function createAPP() {
   const app = new Koa();
+
+  // mount config to koa ctx
+  const config = mountConfig(app);
+
+  logger.setLevel(config.get("app.log_level"));
 
   app.use(KoaError);
 
   // mount service
   app.context.services = {
-    uptimerobot: new UptimeRobotService(process.env.UPTIME_ROBOT_API)
+    uptimerobot: new UptimeRobotService(config.get("uptimerobot.api_key"))
   };
-  // mount config
-  mountConfig(app);
 
   // start cron
   cron(app.context);
-
-  // // error
-  // app.use(
-  //   KoaError({
-  //     engine: "pug",
-  //     template: join(__dirname, "../views/error.pug")
-  //   })
-  // );
 
   // views
   app.use(
@@ -57,9 +48,8 @@ export function createAPP() {
 }
 
 // start server
-const __port = process.env.PORT || 3000;
-
-export function createServer(app, port = __port) {
+export function createServer(app, port) {
+  if (!port) port = app.context.config.app.port;
   return app.listen(port, function() {
     logger.info("Server starts at", port);
   });

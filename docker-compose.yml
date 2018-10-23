@@ -5,13 +5,12 @@ services:
     image: giuem/uptimerobot-page
     # build: .
     environment: 
-      - UPTIME_ROBOT_API=u479099-c8a3538837d06a310c2985d2
-      - PAGE_NAMEFORMAT=
-      - CRONTIME=
       - PORT=3000
-      - PAGE_TITLE=
-      - PAGE_COPYRIGHT=
-      - PAGE_LINKS=
       - LOG_LEVEL=info
+      - CRON_TIME="*/1 * * * *"
+      - UPTIME_ROBOT_API=
+      - UPTIME_ROBOT_NAME_PATTERN=%group/%name
+      - WEBSITE_TITLE=
+      - WEBSITE_COPYRIGHT=
     ports: 
       - 127.0.0.1:8082:3000
