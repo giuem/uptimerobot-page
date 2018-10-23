@@ -11,8 +11,8 @@ uptimerobot:
 
 
 website: 
-  title: "WEBSITE_TITLE"
-  copyright: "WEBSITE_COPYRIGHT"
+  title: WEBSITE_TITLE
+  copyright: WEBSITE_COPYRIGHT
   # links:
   #   - name: home
   #     link: https://uptimerobot.com
