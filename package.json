@@ -1,7 +1,7 @@
 {
   "name": "uptimerobot-page",
   "description": "Another status page based on UptimeRobot",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "build/bootstrap/app.js",
   "repository": "https://github.com/giuem/uptimerobot-page.git",
   "author": "giuem <giuemcom@gmail.com>",
