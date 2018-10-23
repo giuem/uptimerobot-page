@@ -15,7 +15,8 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install && yarn cache clean
 COPY --from=BUILDER /app/build ./build
-RUN yarn install && yarn cache clean
+COPY config ./config
+RUN yarn install && yarn cache clean && ls config
 # To ensure build success when .env is not exist.
 COPY .env* ./
 
