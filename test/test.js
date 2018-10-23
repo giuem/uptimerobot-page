@@ -3,11 +3,9 @@ import superkoa from "superkoa";
 import cheerio from "cheerio";
 import { mockSucc, mockFail } from "./mock";
 import { createAPP } from "../src/bootstrap/app";
-import { logger } from "../src/lib/logger";
 
 test.beforeEach(({ context }) => {
   context.app = createAPP();
-  logger.setLevel("ignore");
 });
 
 test.serial("GET /", async t => {

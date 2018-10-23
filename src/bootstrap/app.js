@@ -48,8 +48,8 @@ export function createAPP() {
 }
 
 // start server
-export function createServer(app, port) {
-  if (!port) port = app.context.config.app.port;
+export function createServer(app) {
+  const port = app.context.config.app.port;
   return app.listen(port, function() {
     logger.info("Server starts at", port);
   });
