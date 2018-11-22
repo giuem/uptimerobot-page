@@ -56,10 +56,12 @@ export default class UptimeRobotService {
     const { dates, ranges } = lastDays(distance);
     const { monitors } = await this.api.getMonitors({
       custom_uptime_ratios: distance,
-      custom_uptime_ranges: ranges
+      custom_uptime_ranges: ranges,
+      statuses: require("config").get("uptimerobot.statuses")
     });
+    const monitors_filtered = monitors.filter(monitor => monitor["friendly_name"].match(this.parser.getRegex()))
     var isIndexed = false;
-    for (let monitor of monitors) {
+    for (let monitor of monitors_filtered) {
       let result = this.parser.parse(monitor["friendly_name"]);
       const groupName = result.group;
       const monitorName = result.name;

@@ -16,7 +16,7 @@ test.serial("GET /", async t => {
   // test UI
   const $ = cheerio.load(res.text);
   t.true($(".icon.icon-status-sum").hasClass("down"));
-  t.is($(".summary-detail").text(), "2 systems are outage.");
+  t.is($(".summary-detail").text(), "2 systems are down.");
   t.is($(".monitor").length, 4);
   scope.persist(false);
 });

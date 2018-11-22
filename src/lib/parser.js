@@ -28,6 +28,10 @@ export class Parser {
     this.regex = new RegExp(rule);
   }
 
+  getRegex() {
+    return this.regex;
+  }
+
   parse(str) {
     const matches = str.match(this.regex).groups;
     if (matches.index) matches.index = parseInt(matches.index);
