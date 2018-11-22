@@ -35,7 +35,12 @@ export function mockSucc() {
           friendly_name: "Server/example2",
           status: 9,
           custom_uptime_ranges,
-          custom_uptime_ratio: "95.000"
+        },
+        {
+          friendly_name: "HiddenMonitor",
+          status: 2,
+          custom_uptime_ranges,
+          custom_uptime_ratio: "96.000"
         }
       ]
     });
