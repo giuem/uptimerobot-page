@@ -58,8 +58,9 @@ export default class UptimeRobotService {
       custom_uptime_ratios: distance,
       custom_uptime_ranges: ranges
     });
+    const monitors_filtered = monitors.filter(monitor => monitor["friendly_name"].match(this.parser.getRegex()))
     var isIndexed = false;
-    for (let monitor of monitors) {
+    for (let monitor of monitors_filtered) {
       let result = this.parser.parse(monitor["friendly_name"]);
       const groupName = result.group;
       const monitorName = result.name;
