@@ -56,7 +56,8 @@ export default class UptimeRobotService {
     const { dates, ranges } = lastDays(distance);
     const { monitors } = await this.api.getMonitors({
       custom_uptime_ratios: distance,
-      custom_uptime_ranges: ranges
+      custom_uptime_ranges: ranges,
+      statuses: require("config").get("uptimerobot.statuses")
     });
     const monitors_filtered = monitors.filter(monitor => monitor["friendly_name"].match(this.parser.getRegex()))
     var isIndexed = false;

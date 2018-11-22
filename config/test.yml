@@ -6,6 +6,7 @@ app:
 uptimerobot:
   api_key: fake_api_key
   # pattern: "%group/%name"
+  statuses: "2-9"
 
 # website:
 #   title: "Uptime Robot Status"
