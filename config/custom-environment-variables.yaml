@@ -10,7 +10,7 @@ uptimerobot:
   pattern: UPTIME_ROBOT_NAME_PATTERN
 
 
-website: 
+website:
   title: WEBSITE_TITLE
   copyright: WEBSITE_COPYRIGHT
   # links:

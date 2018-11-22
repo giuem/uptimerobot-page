@@ -8,7 +8,7 @@ uptimerobot:
   api_key:
   pattern: "%group/%name"
 
-website: 
+website:
   title: "Uptime Robot Status"
   copyright: "Uptime Robot"
   links:
