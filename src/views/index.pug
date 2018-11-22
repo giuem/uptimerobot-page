@@ -3,11 +3,11 @@ mixin monitorStatus(status)
     when 2
       .icon.icon-status.up(title="Operational")
     when 8
-      .icon.icon-status.seem-down(title="Seem down")
+      .icon.icon-status.seem-down(title="Seems down")
     when 9
-      .icon.icon-status.down(title="Outage")
+      .icon.icon-status.down(title="Down")
     default
-      .icon.icon-status.pause(title="Pause")
+      .icon.icon-status.pause(title="Paused")
 
 mixin uptime(uptime)
   .icon-uptime(
@@ -37,11 +37,11 @@ html
               div(style="letter-spacing:-0.5px;")
                 if (data.sum.down > 0)
                   if (data.sum.down == 1)
-                    .summary-detail= data.sum.down + " system is outage." 
+                    .summary-detail= data.sum.down + " system is down."
                   else
-                    .summary-detail= data.sum.down + " systems are outage." 
+                    .summary-detail= data.sum.down + " systems are down."
                 else
-                  .summary-detail="All systems are operational." 
+                  .summary-detail="All systems are operational."
                 .summary-checktime="Last check at " + data.sum.checktime
 
       section.content
@@ -68,8 +68,8 @@ html
                         .monitor-uptimes
                           each uptime in monitor.uptime
                             +uptime(uptime)
-                              
-          
+
+
 
 
       section.footer
@@ -84,6 +84,3 @@ html
       script
         include ../public/js/open.js
         include ../public/js/tippy.js
-        
-
-  
