@@ -4216,9 +4216,10 @@ gulp-cli@^2.0.0:
     v8flags "^3.0.1"
     yargs "^7.1.0"
 
-"gulp-nodemon@github:aal89/gulp-nodemon#8c46ee1ffe02c4b80b0452bd6b3b8c587ab17b79":
-  version "2.4.1"
-  resolved "https://codeload.github.com/aal89/gulp-nodemon/tar.gz/8c46ee1ffe02c4b80b0452bd6b3b8c587ab17b79"
+gulp-nodemon@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/gulp-nodemon/-/gulp-nodemon-2.4.2.tgz#5b368edf3df00b53fa9cc9e894b1a7660c6347bf"
+  integrity sha512-r8ShC9yzL3lK5qUsTStMeZRwqLG6t2m4lEBVcfUYzVkiYSeYXu9xYXG5rfvzBOPZOZ2dWugTKr+zeWbnMnzWDA==
   dependencies:
     colors "^1.2.1"
     gulp "^4.0.0"
