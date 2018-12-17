@@ -11,7 +11,9 @@ export default ctx => {
             "Prefetch done. Next check at " + prefetchMonitors.nextDates()
           );
         })
-        .catch(err => logger.error({ message: err.message, stack: err.stack }));
+        .catch(err => {
+          logger.error(err);
+        });
     },
     onComplete: function() {
       logger.warn("Cron prefetchMonitors is stopped.");

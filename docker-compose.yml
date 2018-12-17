@@ -7,7 +7,7 @@ services:
     environment: 
       - PORT=3000
       - LOG_LEVEL=info
-      - CRON_TIME="*/1 * * * *"
+      - CRON_TIME=*/1 * * * *
       - UPTIME_ROBOT_API=
       - UPTIME_ROBOT_NAME_PATTERN=%group/%name
       - WEBSITE_TITLE=
