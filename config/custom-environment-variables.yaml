@@ -13,8 +13,12 @@ uptimerobot:
 website:
   title: WEBSITE_TITLE
   copyright: WEBSITE_COPYRIGHT
-  # links:
-  #   - name: home
-  #     link: https://uptimerobot.com
-  #   - name: GitHub
-  #     link: https://github.com/giuem/uptimerobot-page
+  links:
+     - name: Website
+       link: https://2005danielus.ml
+     - name: Weather
+       link: https://weather.2005danielus.ml
+     - name: Finder
+       link: https://finder.2005danielus.ml
+     - name: Blog
+       link: https://blog.2005danielus.ml
